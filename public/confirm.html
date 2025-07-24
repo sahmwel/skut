@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmation</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; padding: 20px; }
+    .container { max-width: 500px; margin: 0 auto; }
+    h2 { font-size: 24px; margin-bottom: 10px; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+    .row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+    .label { color: #555; font-weight: 600; }
+    .value { color: #222; font-weight: 600; }
+    .total { font-size: 20px; font-weight: bold; }
+    .btn { width: 100%; padding: 15px; font-size: 16px; font-weight: bold; background-color: #00c853; color: white; border: none; border-radius: 8px; cursor: pointer; }
+    .btn:hover { background-color: #00b04c; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Order Details</h2>
+    <p>Please confirm your booking information:</p>
+    <div class="card">
+      <div class="row"><span class="label">Scooter Type</span><span class="value" id="scooter-type"></span></div>
+      <div class="row"><span class="label">Rental Date</span><span class="value" id="rental-date"></span></div>
+      <div class="row"><span class="label">Order ID</span><span class="value" id="order-id"></span></div>
+      <div class="row"><span class="label">Start Time</span><span class="value" id="start-time"></span></div>
+      <div class="row"><span class="label">Duration</span><span class="value" id="duration"></span></div>
+      <div class="row total"><span class="label">Total</span><span class="value" id="total-price"></span></div>
+    </div>
+    <button class="btn" id="proceed-btn">Proceed</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const scooter = params.get("scooter");
+    const date = params.get("date");
+    const start = params.get("start");
+    const duration = params.get("duration");
+    const price = params.get("price");
+    const orderId = params.get("orderId");
+
+    document.getElementById("scooter-type").textContent = scooter;
+    document.getElementById("rental-date").textContent = date;
+    document.getElementById("start-time").textContent = start;
+    document.getElementById("duration").textContent = duration;
+    document.getElementById("total-price").textContent = price;
+    document.getElementById("order-id").textContent = orderId;
+
+    document.getElementById("proceed-btn").addEventListener("click", () => {
+      const query = `?scooter=${encodeURIComponent(scooter)}&date=${encodeURIComponent(date)}&time=${encodeURIComponent(start)}&price=${encodeURIComponent(price)}&orderId=${orderId}`;
+      window.location.href = "payment.html" + query;
+    });
+  </script>
+</body>
+</html>
