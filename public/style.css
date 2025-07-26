@@ -51,6 +51,7 @@ img {
 .navbar .nav-link:hover {
   color: #2e7d32 !important;
 }
+
 .btn-login {
   background: #1db954;
   color: #fff;
@@ -75,11 +76,32 @@ img {
   gap: 40px;
   flex-wrap: nowrap;
 }
+
+.hero-text {
+  flex: 1;
+}
 .hero-text h1 {
   font-size: 2.8rem;
   line-height: 1.2;
   color: #111;
 }
+.hero-text .line1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.hero-text .ride-text {
+  display: flex;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+.hero-text .ride-text img {
+  height: 2.2rem;
+  object-fit: contain;
+}
+
 .hero-text p {
   margin: 15px 0 25px;
   font-size: 1.1rem;
@@ -98,6 +120,72 @@ img {
   background: #256629;
 }
 
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ====== HERO ANIMATION (≥1024px) ====== */
+@media (min-width: 1024px) {
+  .hero-content {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInHero 0.8s ease-out forwards;
+  }
+
+  .hero-text .line1 {
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInTop 1s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+
+  .hero-text .ride-text {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+
+  .hero-image img {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: fadeInRight 1.2s ease-out forwards;
+    animation-delay: 0.8s;
+  }
+}
+
+/* ====== KEYFRAMES ====== */
+@keyframes fadeInHero {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* ====== BANNER SECTION ====== */
 .banner-section {
   width: 90%; 
@@ -107,7 +195,6 @@ img {
   overflow: hidden;
   position: relative;
 }
-
 .banner-slide {
   width: 100%;
   position: absolute;
@@ -116,18 +203,15 @@ img {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
-
 .banner-slide img {
   width: 100%;
   height: auto; 
   display: block;
 }
-
 .banner-slide.active {
   position: relative;
   opacity: 1;
 }
-
 
 /* ====== TRAVEL ====== */
 .travel {
@@ -172,15 +256,8 @@ img {
   gap: 2rem; 
   justify-content: center; 
   flex-wrap: wrap; 
-}
-.scooter-grid {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
   align-items: stretch;
-  flex-wrap: wrap;
 }
-
 .scooter-card {
   display: flex;
   flex-direction: column;
@@ -191,22 +268,18 @@ img {
   width: 320px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-
 .scooter-card table {
   flex-grow: 1;
 }
-
 .scooter-card .btn-book {
   margin-top: auto; 
 }
-
 .tags {
   display: flex;
   justify-content: center;
   gap: 20px; 
   margin: 15px 0;
 }
-
 .tag {
   background:#E3E3E3;
   color: #535353;
@@ -215,7 +288,6 @@ img {
   border-radius: 25px;
   font-weight: 500;
 }
-
 .specs-row {
   display: flex;
   justify-content: space-between;
@@ -223,7 +295,6 @@ img {
   margin: 10px 0 15px;
   padding: 0 5px;
 }
-
 .spec-item {
   display: flex;
   align-items: center;
@@ -232,7 +303,6 @@ img {
   color: #444;
   font-weight: bold;
 }
-
 .spec-item i {
   color: #1db954;
   font-size: 1.2rem;
@@ -246,21 +316,19 @@ img {
 .price-table td { 
   padding: 6px 0; 
   border-bottom: 1px solid #eee; 
-
 }
+
 /* ====== HOW TO SKUT ====== */
 .skut {
   padding: 60px 0;
   text-align: center;
 }
-
 .skut h2 {
   color: #1db954; 
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 30px;
 }
-
 .steps-vertical {
   display: flex;
   justify-content: center;
@@ -269,7 +337,6 @@ img {
   margin-top: 30px;
   cursor: pointer;
 }
-
 .step-circle {
   background: #1db954;
   color: #fff;
@@ -284,18 +351,15 @@ img {
   padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 .step-circle i {
   font-size: 2rem;
   margin-bottom: 8px;
 }
-
 .step-circle p {
   font-size: 0.85rem;
   line-height: 1.2;
   margin: 0;
 }
-
 
 /* ====== NEWSLETTER ====== */
 .newsletter-section {
@@ -351,14 +415,12 @@ img {
   padding: 40px 0;
   text-align: center;
 }
-
 .footer h2 {
   color: #fff;
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 15px;
 }
-
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -387,40 +449,4 @@ img {
 .footer-bottom {
   margin-top: 20px;
   font-size: 0.9rem;
-}
-
-
-/* RESPONSIVE SCALING */
-@media (max-width: 1024px) {
-  .hero-text h1 { 
-    font-size: 2.4rem; 
-  }
-  .hero-image img { 
-    max-width: 380px; 
-  }
-}
-@media (max-width: 768px) {
-  .hero-text h1 { 
-    font-size: 2rem; 
-  }
-  .hero-image img { 
-    max-width: 300px; 
-  }
-  .travel-images img { 
-    width: 32%; 
-  }
-}
-@media (max-width: 480px) {
-  .hero-text h1 { 
-    font-size: 1.6rem; 
-  }
-  .hero-text p { 
-    font-size: 0.95rem; 
-  }
-  .hero-image img { 
-    max-width: 250px; 
-  }
-  .scooter-card { 
-    width: 280px; 
-  }
 }

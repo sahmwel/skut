@@ -8,134 +8,160 @@
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared External CSS -->
   <link rel="stylesheet" href="style.css">
 
+  <!-- Page-specific Internal CSS -->
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
       color: #333;
-      padding-bottom: 60px;
+      margin: 0;
+      padding: 0;
     }
 
     .auth-container {
-      max-width: 400px;
-      margin: 100px auto 50px;
-      background: #fff;
+      max-width: 500px;
+      margin: 40px auto;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
-    .logo h1 {
+    .auth-container h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
       text-align: center;
-      font-size: 36px;
-      margin-bottom: 30px;
     }
 
-    .logo span {
-      color: #00C853;
+    .auth-container h1 span {
+      color: #00aa55;
     }
-    
 
     .form-toggle {
       display: flex;
-      justify-content: space-around;
-      margin-bottom: 25px;
+      justify-content: center;
+      margin-bottom: 20px;
     }
 
     .form-toggle button {
       border: none;
       background: none;
-      font-size: 16px;
-      font-weight: bold;
-      color: #555;
-      padding: 10px;
-      border-bottom: 2px solid transparent;
+      padding: 10px 20px;
+      font-weight: 600;
       cursor: pointer;
+      color: #666;
+      border-bottom: 2px solid transparent;
     }
 
-    .form-toggle button.active {
-      color: #00C853;
-      border-color: #00C853;
+    .form-toggle .active {
+      color: #00aa55;
+      border-color: #00aa55;
     }
 
     .form-group label {
-      font-size: 14px;
+      font-weight: 600;
       margin-bottom: 5px;
+      display: block;
     }
 
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group input[type="password"],
-    .form-group input[type="tel"] {
+    .form-group input {
       width: 100%;
       padding: 10px;
+      margin-top: 5px;
       border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
+      border-radius: 5px;
     }
 
     .form-action button {
       width: 100%;
       padding: 12px;
-      background: #00C853;
-      color: white;
+      background-color: #00aa55;
       border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
+      color: white;
+      border-radius: 5px;
+      font-weight: 600;
       margin-top: 10px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .toggle-text {
       text-align: center;
-      font-size: 14px;
-      margin-top: 15px;
+      margin-top: 20px;
     }
 
-    .checkbox-group {
-      font-size: 13px;
+    .toggle-text a {
+      color: #00aa55;
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    .checkbox-group a {
-      color: #00C853;
+    .back-link {
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin: 15px 0 0 20px;
+      font-size: 16px;
+      color: #000000;
     }
 
-    #signupForm {
-      display: none;
+    .back-link::before {
+      content: "← ";
+      color: #00aa55;
+    }
+
+    @media (max-width: 600px) {
+      .auth-container {
+        margin: 20px;
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Navbar (Same as index) -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-2">
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container-fluid px-4">
       <a class="navbar-brand" href="index.html">
-        <img src="/images/Skut Logo (For black background).png" alt="SKUT Logo" height="60">
+        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#explore-scooters">Rent a Scooter</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-login ms-2" href="auth.html">Login/Sign Up</a></li>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#explore-scooters" class="nav-link">Rent a Scooter</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item">
+            <a href="auth.html" class="btn btn-login ms-2">Login/Sign Up</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Auth Forms -->
+  <!-- Auth Container -->
   <div class="auth-container">
     <div class="logo">
       <h1>Sk<span>ut</span></h1>
     </div>
 
+    <!-- Toggle -->
     <div class="form-toggle">
       <button id="loginToggle" class="active" onclick="showForm('login')">Login</button>
       <button id="signupToggle" onclick="showForm('signup')">Sign Up</button>
@@ -147,7 +173,7 @@
         <label>Email Address</label>
         <input type="email" placeholder="youremail@example.com" />
       </div>
-      <div class="form-group mb-2">
+      <div class="form-group mb-3">
         <label>Password</label>
         <input type="password" placeholder="Min. 8 Characters" />
       </div>
@@ -195,6 +221,7 @@
       </div>
     </div>
 
+    <!-- Toggle Text -->
     <div class="toggle-text">
       <span id="toggleNote">Don't have an account?</span>
       <a href="#" onclick="toggleText()">Click here</a>
@@ -271,7 +298,7 @@
       }
     }
 
-    // Default to login form on load
+    // Default to login form
     showForm('login');
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,227 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us - SKUT</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
 
-  <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #fff;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    h2, h3 {
-      h3 {
-  color: #28a745; /* Bootstrap's green */
-  font-weight: bold;
-}
-;
-    }
-
-    .contact-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin: 20px 0;
-    }
-
-    .contact-box {
-      flex: 1 1 200px;
-      background-color: #f5f5f5;
-      padding: 20px;
-      text-align: center;
-      border-radius: 10px;
-    }
-
-    .contact-box i {
-      font-size: 24px;
-      margin-bottom: 10px;
-      display: block;
-      color: green;
-    }
-
-    .section {
-      margin: 30px 0;
-    }
-
-    strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    textarea {
-      resize: vertical;
-      height: 100px;
-    }
-
-    button {
-      background-color: #00b050;
-      color: white;
-      padding: 14px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #019f47;
-    }
-
-    .back-link {
-      color: #019f47;
-      font-weight: bold;
-      display: inline-block;
-      margin: 20px 0;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      .contact-options {
-        flex-direction: column;
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #fafafa;
+        padding: 24px 16px;
+        color: #1c1c1e;
+        margin: 0;
       }
 
-      .container {
-        padding: 15px;
+      h2 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
       }
-    }
-  </style>
-</head>
-<body>
- <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div class="container">
-            <div class="logo">
-                <img src="/images/Skut Logo (For black background).png" alt="SKUT Logo" height="70">
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#explore-scooters" class="nav-link">Rent a Scooter</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li class="nav-item">
-                        <a href="auth.html" class="btn btn-login">Login/Sign Up</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-  </nav>
 
-  <div class="container">
-    <a href="#" class="back-link">← Back</a>
+      p {
+        font-size: 14px;
+        color: #6e6e73;
+        margin-bottom: 24px;
+      }
 
+      .contact-methods {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+      }
+
+      .contact-box {
+        flex: 1;
+        min-width: 140px;
+        background-color: #fff;
+        border: 1px solid #e5e5ea;
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+      }
+
+      .contact-box svg {
+        color: #00c853;
+        width: 24px;
+        height: 24px;
+        margin-bottom: 8px;
+      }
+
+      .contact-box .label {
+        font-size: 13px;
+        color: #1c1c1e;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .contact-box .value {
+        font-size: 14px;
+        color: #1c1c1e;
+      }
+
+      .section-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        margin-top: 24px;
+      }
+
+      .hours {
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .bold {
+        font-weight: 600;
+      }
+
+      form {
+        margin-top: 24px;
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        border: 1px solid #e5e5ea;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        background-color: white;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .btn {
+        width: 100%;
+        background-color: #00c853;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .btn:active {
+        background-color: #00b44c;
+      }
+    </style>
+  </head>
+  <body>
     <h2>Contact Us</h2>
     <p>You can reach out to us via any of our channels and we’ll provide you with prompt support.</p>
 
-    <div class="contact-options">
+    <div class="contact-methods">
       <div class="contact-box">
-        <i class="bi bi-telephone-fill text-success"></i>
-        <strong>Phone</strong>
-        343 9962438
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21 11.72 11.72 0 0 0 3.7.59 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17.93 17.93 0 0 1 2 6a1 1 0 0 1 1-1h3.6a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .59 3.7 1 1 0 0 1-.21 1.09Z"/></svg>
+        <div class="label">Phone</div>
+        <div class="value">343 9962438</div>
       </div>
       <div class="contact-box">
-        <i class="bi bi-envelope-fill text-success"></i>
-        <strong>Email</strong>
-        skutSupport@gmail.com
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.01L12 13 4 6.01V6h16ZM4 18V8.12l7.42 6.23a1 1 0 0 0 1.16 0L20 8.12V18H4Z"/></svg>
+        <div class="label">Email</div>
+        <div class="value">skutsupport@gmail.com</div>
       </div>
     </div>
 
-    <div class="section">
-      <h3>Business Hours</h3>
-      <p><strong>MONDAY TO SATURDAY:</strong><br>07:00 – 22:00</p>
-      <p><strong>SUNDAY:</strong><br>12:00 – 22:00</p>
-    </div>
+    <div class="section-title">Business Hours</div>
+    <div class="hours"><span class="bold">MONDAYS TO SATURDAYS</span><br />07:00 - 22:00</div>
+    <div class="hours"><span class="bold">SUNDAYS</span><br />12:00 - 22:00</div>
 
-    <div class="section">
-      <h3>Get in Touch</h3>
-      <p>Whether you have feedback, inquiries, or a complaint, we’re just a message or call away. Contact us now!</p>
+    <div class="section-title">Get in Touch</div>
+    <p>Whether you have feedback, inquiries or a complaint, we're just a message or call away. Contact us now!</p>
 
-      <form>
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="subject" placeholder="Subject" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Newsletter Section -->
-  <section class="newsletter-section">
-    <div class="container">
-      <div class="newsletter">
-        <p>Subscribe to our newsletter to get updates on our latest offers!</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-logo">
-        <h2>SK <span class="logo-green">ut</span></h2>
-        <p>At SKUT, we're your affordable, eco-friendly solution for getting around Ottawa with speed and style.</p>
-      </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="order.html">Rent a Scooter</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-      <div class="social-links">
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-x"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>SKUT &copy; 2025. All Rights Reserved</p>
-    </div>
-  </footer>
-
-  <!-- JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <form>
+      <input type="text" placeholder="Name" />
+      <input type="email" placeholder="Email" />
+      <input type="text" placeholder="Subject" />
+      <textarea placeholder="Message"></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </body>
 </html>

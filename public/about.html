@@ -3,47 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SKUT - Home</title>
+  <title>SKUT - About Us</title>
 
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Inner Css -->
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Page-specific internal CSS -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
       background-color: #ffffff;
       color: #333;
+      margin: 0;
+      padding: 0;
     }
 
     .container {
+      max-width: 750px;
       padding: 20px;
-      max-width: 700px;
       margin: auto;
     }
 
     .back-link {
-      color: green;
+      font-weight: bold;
       text-decoration: none;
       display: inline-block;
       margin: 15px 0;
-      font-weight: bold;
+      font-size: 16px;
+      color: #000000;
+    }
+
+    .back-link::before {
+      content: "← ";
+      color: #00aa55;
     }
 
     .about-img {
       width: 100%;
       border-radius: 10px;
+      margin-bottom: 25px;
     }
 
     h2 {
       color: #00aa55;
       margin-top: 30px;
+      font-weight: 700;
     }
 
     .section {
@@ -51,9 +62,9 @@
     }
 
     .value-title {
-      font-weight: bold;
+      font-weight: 600;
       margin-top: 15px;
-      color: #444;
+      color: #222;
     }
 
     @media (max-width: 600px) {
@@ -65,23 +76,23 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container d-flex justify-content-between align-items-center">
+  <!-- Navbar (Same as index.html) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-2">
+    <div class="container-fluid px-4">
       <a class="navbar-brand" href="index.html">
-        <img src="./images/Skut Logo (For black background).png" alt="SKUT Logo" height="70">
+        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav">
           <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="#explore-scooters" class="nav-link">Rent a Scooter</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link active">About Us</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
           <li class="nav-item">
-            <a href="auth.html" class="btn btn-login">Login/Sign Up</a>
+            <a href="auth.html" class="btn btn-login ms-2">Login/Sign Up</a>
           </li>
         </ul>
       </div>
@@ -90,17 +101,19 @@
 
   <!-- About Section -->
   <div class="container">
-    <a href="index.html" class="back-link">← back</a>
+    <a href="index.html" class="back-link">back</a>
 
     <img src="./images/about.jpg" alt="SKUT Scooters" class="about-img img-fluid" />
 
     <h2>About SKUT</h2>
     <p>
-      SKUT was founded in Ottawa by international student Russell Young, who arrived in Canada with a dream of building something meaningful—not just for himself, but for the city he now called home. As a student navigating Ottawa’s public transportation system, Russell quickly realized how expensive, time-consuming, and limiting traditional options could be—especially for young people, students, low-income residents, and newcomers without access to a car.
+      SKUT was founded in Ottawa by international student Russell Young, who arrived in Canada with a dream of building something meaningful—not just for himself, but for the city he now called home...
     </p>
+
     <p>
-      What began as a daily frustration—waiting 25 minutes for a crowded bus—sparked a bigger idea: What if getting across the city was as easy as riding your own scooter or e-bike—without owning one? That idea became SKUT, an Ottawa-first micromobility company designed to offer affordable, electric-powered personal transport for anyone needing to travel short distances quickly, safely, and sustainably.
+      What began as a daily frustration—waiting 25 minutes for a crowded bus—sparked a bigger idea...
     </p>
+
     <p>
       SKUT is not just a business—it’s a mission-driven solution born out of necessity and backed by deep local ambition.
     </p>
@@ -109,29 +122,19 @@
 
     <div class="section">
       <p class="value-title">Community First Design</p>
-      <p>
-        We build our services around the needs of Ottawa, ensuring SKUT is a truly local solution. Our goal is to enhance urban mobility in a way that benefits everyone in the city.
-      </p>
+      <p>We build our services around the needs of Ottawa, ensuring SKUT is a truly local solution...</p>
 
       <p class="value-title">Fair Pricing And Equity Access</p>
-      <p>
-        We believe everyone deserves access to affordable transportation options. SKUT strives to keep costs low and remove barriers, making micromobility accessible for all residents.
-      </p>
+      <p>We believe everyone deserves access to affordable transportation...</p>
 
       <p class="value-title">Transparent Safety Standards</p>
-      <p>
-        Your safety is our top priority, and we’re committed to clear communication about our safety measures. We continuously work to implement and share robust standards for a secure riding experience.
-      </p>
+      <p>Your safety is our top priority, and we’re committed to clear communication...</p>
 
       <p class="value-title">Open Collaboration With Public Services</p>
-      <p>
-        Working closely with Ottawa’s public services helps us integrate seamlessly into the city’s infrastructure. We believe in partnership to create a more efficient and connected transportation network.
-      </p>
+      <p>Working closely with Ottawa’s public services helps us integrate...</p>
 
       <p class="value-title">Zero-Emissions Commitment In All Operations</p>
-      <p>
-        We’re dedicated to a cleaner, greener Ottawa. Every SKUT ride helps reduce carbon emissions, contributing to a healthier environment for our community.
-      </p>
+      <p>We’re dedicated to a cleaner, greener Ottawa...</p>
     </div>
   </div>
 

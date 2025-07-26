@@ -1,312 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SKUT - Product</title>
-
-  <!-- Bootstrap & Icons -->
+  <title>SKUT One (E-Scooter)</title>
+ <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Custom Css -->
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared External CSS -->
   <link rel="stylesheet" href="style.css">
 
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      background: #fff;
+      padding: 20px;
+    }
+    .green-text {
+      color: #00B050;
+    }
+    .badge-custom {
+      background-color: #eee;
+      color: #666;
+      font-weight: 400;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .feature-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    .feature-list {
+      padding-left: 1rem;
+      font-size: 14px;
+    }
+    .feature-list li {
       color: #333;
     }
-    .back {
-      display: inline-block;
-      margin: 20px 0;
-      font-size: 16px;
-      color: #1db954;
-      text-decoration: none;
+    .feature-list li::marker {
+      color: #00B050;
     }
-    .back:hover {
-      text-decoration: underline;
-    }
-    .product-container {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 25px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    /* Main image */
-    .main-image img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      transition: 0.3s;
-    }
-    /* Thumbnails */
-    .thumbnail-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      justify-content: center;
-    }
-    .thumbnail-row img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 6px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: 0.2s;
-    }
-    .thumbnail-row img.active,
-    .thumbnail-row img:hover {
-      border-color: #1db954;
-    }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #1db954;
-    }
-    .tags {
-      margin-bottom: 15px;
-    }
-    .tags .badge {
-      background: #eaf7f0;
-      color: #1db954;
-      padding: 5px 10px;
-      font-size: 13px;
-      margin-right: 5px;
-      border-radius: 6px;
-    }
-    .specs-row {
-      display: flex;
-      gap: 30px;
-      margin-bottom: 20px;
-      font-size: 16px;
-    }
-    .features h3 {
-      margin-top: 20px;
-      font-size: 20px;
-    }
-    .features ul {
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-    .description p {
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-    .description em {
-      color: #1db954;
+    .italic-green {
+      font-style: italic;
       font-weight: 500;
+      color: #00B050;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .description {
+      font-size: 13.5px;
+      margin-top: 8px;
     }
     .price-table {
       width: 100%;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      border-collapse: collapse;
+      max-width: 300px;
+      margin: 20px auto;
+      font-size: 14px;
     }
     .price-table td {
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
+      padding: 4px 0;
     }
-    .note {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 20px;
+    .note-text {
+      font-size: 12px;
+      color: #6c757d;
+      margin-top: 15px;
     }
-    .note i {
-      color: #1db954;
-      font-size: 20px;
-      margin-top: 2px;
-    }
-    .btn-book {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 12px;
-      background: #1db954;
+    .book-btn {
+      background-color: #00B050;
       color: #fff;
       font-weight: 600;
-      font-size: 18px;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s;
+      font-size: 14px;
+      margin-top: 15px;
     }
-    .btn-book:hover {
-      background: #18a147;
+    .book-btn:hover {
+      background-color: #009243;
+      color: #fff;
+    }
+    .back-link {
+      font-size: 14px;
+      text-decoration: none;
+      color: #333;
+      margin-bottom: 10px;
+      display: inline-block;
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
-      <div class="logo">
-        <img src="/images/Skut Logo (For black background).png" alt="SKUT Logo" height="100">
-      </div>
+  <!-- Navbar (Same as index) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-2">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="index.html">
+        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
           <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="#explore-scooters" class="nav-link">Rent a Scooter</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
           <li class="nav-item">
-            <a href="auth.html" class="btn btn-login">Login/Sign Up</a>
+            <a href="auth.html" class="btn btn-login ms-2">Login/Sign Up</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container">
-    <a href="index.html" class="back">&larr; Back</a>
-    <div id="product-details" class="product-container">
-      <!-- Dynamic content loads here -->
-    </div>
+
+  <a href="#" class="back-link">
+    <i class="bi bi-arrow-left"></i> back
+  </a>
+
+  <div class="text-center mb-3">
+    <img src="../public/images/e-scooter.jpg" alt="E-Scooter" class="img-fluid" style="border-bottom: 2px solid #00B050; border-radius: 8px;">
   </div>
 
-  <!-- Newsletter Section -->
-  <section class="newsletter-section">
-    <div class="container">
-      <h2 class="newsletter-heading">Start Riding<br>Smarter With<br>SK <span class="logo-green">ut</span></h2>
-      <div class="newsletter">
-        <p>Subscribe to our newsletter to get updates on our latest offers!</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-    </div>
-  </section>
+  <h5 class="green-text fw-semibold mb-2">SKUT One (E-Scooter)</h5>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-logo">
-        <h2>SK <span class="logo-green">ut</span></h2>
-        <p>At SKUT, we're your affordable, eco-friendly solution for getting around Ottawa with speed and style.</p>
-      </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="order.html">Rent a Scooter</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-      <div class="social-links">
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-x"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>SKUT &copy; 2025. All Rights Reserved</p>
-    </div>
-  </footer>
+  <div class="mb-2">
+    <span class="badge-custom">Road Use</span>
+    <span class="badge-custom">Long Range</span>
+  </div>
 
-  <script>
-    const products = {
-      one: {
-        name: "SKUT One (E-Scooter)",
-        images: ["./images/e-scooter.jpg", "/images/e-scooter2.jpg", "/images/e-scooter3.jpg"],
-        tags: ["Road Use", "Long Range"],
-        speed: "20-24 km/h",
-        range: "70 km",
-        features: [
-          "LED headlight",
-          "Regenerative braking",
-          "Indicator lights",
-          "IP67 water resistance for rainy rides",
-          "Dual lock points and GPS security"
-        ],
-        description: "The SKUT One is our agile e-scooter, perfectly designed for navigating Ottawa's downtown and campus. It offers a smooth, efficient ride with a top speed of 20-24 km/h and an impressive 70 km range. Built to perform in various conditions, it features all-weather capability and advanced security, ensuring a reliable and safe journey."
-      },
-      glide: {
-        name: "SKUT Glide (E-Bike)",
-        images: ["./images/ebike.jpg", "/images/ebike2.jpg", "/images/ebike3.jpg"],
-        tags: ["Road Use", "Comfort Ride"],
-        speed: "30-36 km/h",
-        range: "70 km",
-        features: [
-          "LED headlight",
-          "Comfortable seat",
-          "Front basket",
-          "IP67 water resistance for rainy rides",
-          "Dual lock points and GPS security"
-        ],
-        description: "The SKUT Glide is our premium e-bike, built for both comfort and range. It can reach speeds of up to 36 km/h, making it perfect for longer city commutes and leisure rides."
-      }
-    };
+  <div class="mt-2 mb-2">
+    <p class="mb-1" style="font-size: 14px;">
+      <i class="bi bi-speedometer2 green-text"></i> Max. Speed: 
+      <span class="fw-semibold">20–24 km/h</span>
+    </p>
+    <p class="mb-0" style="font-size: 14px;">
+      <i class="bi bi-geo-alt green-text"></i> Range: 
+      <span class="fw-semibold">70km</span>
+    </p>
+  </div>
 
-    // Read selected scooter from URL (?scooter=one or ?scooter=glide)
-    const urlParams = new URLSearchParams(window.location.search);
-    const scooter = urlParams.get("scooter") || "one";
-    const container = document.getElementById("product-details");
-    const product = products[scooter];
+  <div class="feature-title">Features</div>
+  <ul class="feature-list">
+    <li>LED headlight</li>
+    <li>Regenerative braking</li>
+    <li>Indicator lights</li>
+    <li>IP67 water resistance for rainy rides</li>
+    <li>Dual lock points and GPS security</li>
+  </ul>
 
-    if (product) {
-      container.innerHTML = `
-        <div class="main-image">
-          <img id="main-img" src="${product.images[0]}" alt="${product.name}">
-        </div>
-        <div class="thumbnail-row">
-          ${product.images.map((img, index) =>
-            `<img src="${img}" class="${index === 0 ? 'active' : ''}" onclick="changeImage('${img}', this)">`
-          ).join("")}
-        </div>
-        <h1>${product.name}</h1>
-        <div class="tags">
-          ${product.tags.map(tag => `<span class="badge">${tag}</span>`).join("")}
-        </div>
-        <div class="specs-row">
-          <div><i class="bi bi-speedometer2"></i> Max Speed: ${product.speed}</div>
-          <div><i class="bi bi-geo"></i> Range: ${product.range}</div>
-        </div>
-        <div class="features">
-          <h3>Features</h3>
-          <ul>${product.features.map(f => `<li>${f}</li>`).join("")}</ul>
-        </div>
-        <div class="description">
-          <p><em>Smooth rides - made just for you...</em></p>
-          <p>${product.description}</p>
-        </div>
-        <table class="price-table">
-          <tr><td>1 hour</td><td>$18</td></tr>
-          <tr><td>2 hours</td><td>$30</td></tr>
-          <tr><td>4 hours</td><td>$45</td></tr>
-          <tr><td>8 hours</td><td>$60</td></tr>
-          <tr><td>1 day</td><td>$75</td></tr>
-          <tr><td>1 week</td><td>$225</td></tr>
-        </table>
-        <div class="note">
-          <i class="bi bi-shield-check"></i>
-          <span>
-            Your SKUT ride is GPS-tracked, speed-limited, and equipped with lights and alerts for safety. Please follow local rules and report any issues using our community tool.
-          </span>
-        </div>
-        <!-- UPDATED: include scooter param -->
-        <a href="order.html?scooter=${encodeURIComponent(scooter)}" class="btn-book">Proceed to Order</a>
-      `;
-    } else {
-      container.innerHTML = `<p>Product not found.</p>`;
-    }
+  <div class="italic-green">Smooth rides– made just for you...</div>
 
-    // Image thumb -> main swap
-    window.changeImage = (src, el) => {
-      document.getElementById('main-img').src = src;
-      document.querySelectorAll('.thumbnail-row img').forEach(img => img.classList.remove('active'));
-      el.classList.add('active');
-    };
-  </script>
+  <p class="description">
+    The SKUT One is our agile e-scooter, perfectly designed for navigating Ottawa's downtown and campus.
+    It offers a smooth, efficient ride with a top speed of 20–24 km/h and an impressive 70 km range.
+    Built to perform in various conditions, it features all-weather capability and advanced security,
+    ensuring a reliable and safe journey.
+  </p>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <table class="price-table text-center">
+    <tr><td>1 hour</td><td>$18</td></tr>
+    <tr><td>2 hours</td><td>$30</td></tr>
+    <tr><td>4 hours</td><td>$45</td></tr>
+    <tr><td>8 hours</td><td>$60</td></tr>
+    <tr><td>1 day</td><td>$75</td></tr>
+    <tr><td>1 week</td><td>$225</td></tr>
+  </table>
+<p class="note-text">
+    <i class="bi bi-shield-check green-text"></i>
+    Your SKUT ride is GPS-tracked, speed-limited, and equipped with lights and alerts for your safety.
+    Please follow local rules and report any issues using our community tool.
+  </p>
+
+  <button class="btn book-btn w-100">Book Now</button>
+
 </body>
 </html>

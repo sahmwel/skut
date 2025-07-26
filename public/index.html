@@ -18,7 +18,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container">
             <div class="logo">
-                <img src="./images/Skut Logo (For black background).png" alt="SKUT Logo" height="100">
+                <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25">
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -38,18 +38,25 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1><span class="green">Move Freely,</span> Ride SK <span class="logo-green">ut</span></h1>
-        <p>With SKUT, getting around is effortless, affordable, and always within reach.</p>
-        <a href="order.html" class="btn-book">Book Now</a>
-      </div>
-      <div class="hero-image">
-        <img src="./images/Image_fx (6) 1.jpg" alt="SKUT Scooter">
-      </div>
-    </div>
-  </section>
+  <div class="hero-content d-flex justify-content-between align-items-center flex-wrap">
+  <div class="hero-text">
+    <h1 class="line1">
+      <span class="green">Move</span> Freely,
+    </h1>
+    <h1 class="ride-text d-flex align-items-center gap-2">
+      Ride 
+      <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" class="inline-logo" height="20">
+    </h1>
+    <p>With SKUT, getting around is effortless, affordable, and always within reach.</p>
+    <a href="order.html" class="btn-book">Book Now</a>
+  </div>
+  
+  <div class="hero-image">
+    <img src="../public/images/Scooter Png.png" alt="SKUT Scooter">
+  </div>
+</div>
+
+
 
     <!-- Banner Section -->
     <section class="banner-section">
@@ -89,19 +96,27 @@
         </div>
         <img src="./images/e-scooter.jpg" alt="SKUT One">
         <div class="specs-row">
-          <div class="spec-item"><i class="bi bi-speedometer2"></i> Max: 20-24 km/h</div>
-          <div class="spec-item"><i class="bi bi-geo"></i> Range: 70 km</div>
-        </div>
-        <table class="price-table">
-          <tr><td>1 hour</td><td>$18</td></tr>
-          <tr><td>2 hours</td><td>$30</td></tr>
-          <tr><td>4 hours</td><td>$45</td></tr>
-          <tr><td>8 hours</td><td>$60</td></tr>
-          <tr><td>1 day</td><td>$75</td></tr>
-          <tr><td>1 week</td><td>$225</td></tr>
-        </table>
-        <a href="product.html?scooter=one" class="btn-book">Let's Skut</a>
-      </div>
+          <div class="specs-mobile">
+            <div class="spec-row">
+              <i class="bi bi-speedometer2"></i>
+              <span><strong>Max</strong>: 20–24 <span class="unit">km/h</span></span>
+            </div>
+            <div class="spec-row">
+              <i class="bi bi-geo"></i>
+              <span><strong>Range</strong>: 70 <span class="unit">km</span></span>
+            </div>
+          </div>
+          <div>
+            <table class="price-table">
+              <tr><td>1 hour</td><td>$18</td></tr>
+              <tr><td>2 hours</td><td>$30</td></tr>
+              <tr><td>4 hours</td><td>$45</td></tr>
+              <tr><td>8 hours</td><td>$60</td></tr>
+              <tr><td>1 day</td><td>$75</td></tr>
+              <tr><td>1 week</td><td>$225</td></tr>
+            </table>
+             <a href="product.html?scooter=one" class="btn-book">Let's Skut</a>
+          </div>
 
       <!-- SKUT Glide -->
       <div class="scooter-card">
@@ -125,7 +140,6 @@
         </table>
         <a href="product.html?scooter=glide" class="btn-book">Book Now</a>
       </div>
-
     </div>
   </section>
 
