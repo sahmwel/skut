@@ -1,45 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Booking Confirmation</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #fff;
-    text-align: center;
-  }
-  .container {
-    max-width: 400px;
-    padding: 20px;
-  }
-  .checkmark {
-    background-color: #22c55e;
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    font-size: 48px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKUT Booking Confirmation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      height: 100vh;
+    }
+
+    /* Modal overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* Modal content */
+    .modal-content {
+      position: relative;
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Close icon */
+    .close-icon {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .close-icon:hover {
+      color: #e11d48;
+    }
+
+    .modal-content h2 {
+      font-size: 20px;
+      color: #333;
+    }
+
+    .checkmark {
+      background-color: #22c55e;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      font-size: 48px;
+      margin: 20px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .modal-content p {
+      color: #555;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
+
+<!-- Modal -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-content">
+    <span class="close-icon" onclick="closeModal()">×</span>
     <h2>Congratulations! You have now<br>booked a SKUT</h2>
     <div class="checkmark">✓</div>
     <p>Details of your order have now<br>been sent to your email address.</p>
   </div>
+</div>
+
+<script>
+  function closeModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
