@@ -13,7 +13,6 @@
       background-color: #fff;
     }
 
-    /* === MODAL OVERLAY === */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0;
@@ -26,7 +25,6 @@
       z-index: 1000;
     }
 
-    /* === MODAL CONTENT === */
     .modal {
       background-color: #fff;
       max-width: 500px;
@@ -39,7 +37,6 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
-    /* === CLOSE BUTTON === */
     .close-btn {
       position: absolute;
       top: 12px;
@@ -101,7 +98,7 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       appearance: none;
-      background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3e%3cpath fill='%23666' d='M7 10L0 0h14z'/%3e%3c/svg%3e");
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3e%3cpath fill='%23666' d='M7 10L0 0h14z'/%3e%3c/svg%3e");
       background-repeat: no-repeat;
       background-position: right 12px center;
       background-size: 14px 10px;
@@ -128,7 +125,6 @@
 </head>
 <body>
 
-  <!-- Modal -->
   <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
       <button class="close-btn" aria-label="Close booking modal" onclick="closeModal()">&times;</button>
@@ -141,22 +137,22 @@
       <form action="details.html" method="GET">
         <label for="rent-date">Select Rent Date</label>
         <select id="rent-date" name="rent-date" required>
-          <option value="2025-08-17">17th August, 2025</option>
+          <option value="" disabled selected>Select a date</option>
         </select>
 
         <label for="start-time">Start Time</label>
         <select id="start-time" name="start-time" required>
-          <option value="16:00">16:00</option>
+          <option value="" disabled selected>Select a time</option>
         </select>
 
         <label for="duration">Duration</label>
         <select id="duration" name="duration" required>
-          <option value="2h">2 hours</option>
+          <option value="" disabled selected>Select duration</option>
         </select>
 
         <label for="pickup-station">Select Pickup Station</label>
         <select id="pickup-station" name="pickup-station" required>
-          <option value="23 St. Street, AB District">23 St. Street, AB District</option>
+          <option value="" disabled selected>Select station</option>
         </select>
 
         <button type="submit" class="book-button">Book Now</button>
@@ -168,6 +164,54 @@
     function closeModal() {
       document.getElementById('bookingModal').style.display = 'none';
     }
+
+    // Populate Rent Dates (next 5 days)
+    const rentDateSelect = document.getElementById('rent-date');
+    const today = new Date();
+    for (let i = 0; i < 5; i++) {
+      const date = new Date(today);
+      date.setDate(today.getDate() + i);
+      const option = document.createElement('option');
+      option.value = date.toISOString().split('T')[0];
+      option.textContent = date.toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric'
+      });
+      rentDateSelect.appendChild(option);
+    }
+
+    // Populate Start Times (every 2 hours from 8 AM to 6 PM)
+    const startTimeSelect = document.getElementById('start-time');
+    for (let hour = 8; hour <= 18; hour += 2) {
+      const timeStr = `${hour.toString().padStart(2, '0')}:00`;
+      const option = document.createElement('option');
+      option.value = timeStr;
+      option.textContent = timeStr;
+      startTimeSelect.appendChild(option);
+    }
+
+    // Populate Duration Options (1h - 6h)
+    const durationSelect = document.getElementById('duration');
+    for (let h = 1; h <= 6; h++) {
+      const option = document.createElement('option');
+      option.value = `${h}h`;
+      option.textContent = `${h} hour${h > 1 ? 's' : ''}`;
+      durationSelect.appendChild(option);
+    }
+
+    // Populate Pickup Stations
+    const stations = [
+      "23 St. Street, AB District",
+      "45 Avenue, CD Zone",
+      "12 Market Rd, EF Area",
+      "77 Unity Blvd, GH City"
+    ];
+    const stationSelect = document.getElementById('pickup-station');
+    stations.forEach(station => {
+      const option = document.createElement('option');
+      option.value = station;
+      option.textContent = station;
+      stationSelect.appendChild(option);
+    });
   </script>
 
 </body>
