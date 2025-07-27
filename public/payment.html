@@ -2,27 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Payment Modal</title>
-  <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Shared External CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Bootstrap Icons -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" 
-    rel="stylesheet"
-  >
+  <!-- Bootstrap CSS for styling and responsive layout -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons for icon usage -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Google Font Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* Basic body and modal styling */
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #333;
       margin: 0;
       padding: 0;
@@ -36,13 +28,26 @@
       border-radius: 8px;
       padding: 15px;
     }
+    /* Styled "Pay" button */
     .pay-btn {
       background-color: #00b050;
       color: #fff;
+      transition: background-color 0.3s ease;
+      border: none;
+      width: 100%;
+      padding: 14px 0;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
     }
     .pay-btn:hover {
       background-color: #009243;
       color: #fff;
+      text-decoration: none;
     }
     .small-text {
       font-size: 0.875rem;
@@ -60,62 +65,71 @@
 </head>
 <body>
 
-<!-- Modal -->
-<div class="modal show d-block" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <!--
+    Payment modal container
+    This modal shows the payment details and payment form fields.
+    The modal is always visible here (for demo); normally it should be toggled with JS.
+  -->
+  <div class="modal show d-block" tabindex="-1" aria-modal="true" role="dialog" aria-labelledby="paymentModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
-      <div class="modal-header border-0 pb-0">
-        <h5 class="modal-title">Payment</h5>
-        <button type="button" class="btn-close" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-        <div class="mb-3">
-          <p class="fw-semibold mb-1">Anibe Achema</p>
-          <p class="mb-1 small-text icon-text">
-            <i class="bi bi-envelope green-icon"></i> achemaanibe@gmail.com
-          </p>
-          <p class="mb-1 small-text icon-text">
-            <i class="bi bi-telephone green-icon"></i> 555-011-234
-          </p>
+        <!-- Modal header with title and close button -->
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title" id="paymentModalLabel">Payment</h5>
+          <button type="button" class="btn-close" aria-label="Close"></button> <!-- Close button (needs JS handler) -->
         </div>
 
-        <div class="d-flex justify-content-between mb-3">
-          <div>
-            <p class="mb-0 fw-semibold">Performace City Bike</p>
-            <p class="mb-0 small-text">Sat Aug 17, 2025</p>
-            <p class="mb-0 small-text icon-text">
-              <i class="bi bi-check-circle green-icon"></i> 16:00 - 18:00
+        <!-- Modal body containing user & booking info, payment form -->
+        <div class="modal-body">
+          <!-- User contact info (could be pre-filled by backend) -->
+          <div class="mb-3">
+            <p class="fw-semibold mb-1">Anibe Achema</p> <!-- User full name -->
+            <p class="mb-1 small-text icon-text">
+              <i class="bi bi-envelope green-icon"></i> achemaanibe@gmail.com <!-- User email -->
+            </p>
+            <p class="mb-1 small-text icon-text">
+              <i class="bi bi-telephone green-icon"></i> 555-011-234 <!-- User phone number -->
             </p>
           </div>
-          <div class="fw-semibold">$ 30</div>
-        </div>
 
-        <div class="booking-card mb-3">
-          <p class="fw-semibold mb-2">Payment Required</p>
-          <div class="mb-2">
-            <input type="text" class="form-control" placeholder="Name on Card">
+          <!-- Booking details summary -->
+          <div class="d-flex justify-content-between mb-3">
+            <div>
+              <p class="mb-0 fw-semibold">Performance City Bike</p> <!-- Scooter/vehicle type -->
+              <p class="mb-0 small-text">Sat Aug 17, 2025</p> <!-- Rental date -->
+              <p class="mb-0 small-text icon-text">
+                <i class="bi bi-check-circle green-icon"></i> 16:00 - 18:00 <!-- Rental start and end times -->
+              </p>
+            </div>
+            <div class="fw-semibold">$30</div> <!-- Total price -->
           </div>
-          <div class="mb-2">
-            <input type="text" class="form-control" placeholder="Card Number">
-          </div>
-          <div class="d-flex gap-2 mb-2">
-            <input type="text" class="form-control" placeholder="Expiry Date">
-            <input type="text" class="form-control" placeholder="Validation Code">
-          </div>
-          <p class="small-text mb-3">
-            *Completing your payment secures your SKUT booking and confirms your acceptance of our no-refund policy.
-          </p>
-          <button class="btn pay-btn w-100">Pay $ 30</button>
-        </div>
 
+          <!-- Payment form inputs -->
+          <div class="booking-card mb-3">
+            <p class="fw-semibold mb-2">Payment Required</p>
+            <input type="text" class="form-control mb-2" placeholder="Name on Card" />
+            <input type="text" class="form-control mb-2" placeholder="Card Number" />
+            <div class="d-flex gap-2 mb-2">
+              <input type="text" class="form-control" placeholder="Expiry Date" />
+              <input type="text" class="form-control" placeholder="Validation Code" />
+            </div>
+            <p class="small-text mb-3">
+              *Completing your payment secures your SKUT booking and confirms your acceptance of our no-refund policy.
+            </p>
+            <!-- 
+              Pay button linking to confirmation page.
+              Backend should validate payment info before final confirmation.
+            -->
+            <a href="confirm.html" class="pay-btn" role="button">Pay $30</a>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Bootstrap JS (optional for modal functionality) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS (optional for modal behaviors like closing) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

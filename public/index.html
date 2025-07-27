@@ -1,228 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SKUT - Home</title>
 
   <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
 
-  <!-- Custom CSS -->
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Css -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div class="container">
-            <div class="logo">
-                <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25">
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#explore-scooters" class="nav-link">Rent a Scooter</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li class="nav-item">
-                        <a href="auth.html" class="btn btn-login">Login/Sign Up</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <div class="container">
+      <!-- Logo: Could be dynamic if branding changes -->
+      <a class="navbar-brand" href="index.html">
+        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25">
+      </a>
+
+      <!-- Mobile menu button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- Navigation links: Can be rendered dynamically if needed -->
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#explore-scooters" class="nav-link">Rent a Scooter</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+
+          <!-- Authentication link: Backend should toggle between Login/Logout based on user session -->
+          <li class="nav-item"><a href="auth.html" class="btn btn-success ms-2">Login/Sign Up</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
   <!-- Hero Section -->
-  <div class="hero-content d-flex justify-content-between align-items-center flex-wrap">
-  <div class="hero-text">
-    <h1 class="line1">
-      <span class="green">Move</span> Freely,
-    </h1>
-    <h1 class="ride-text d-flex align-items-center gap-2">
-      Ride 
-      <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" class="inline-logo" height="20">
-    </h1>
-    <p>With SKUT, getting around is effortless, affordable, and always within reach.</p>
-    <a href="order.html" class="btn-book">Book Now</a>
-  </div>
-  
-  <div class="hero-image">
-    <img src="../public/images/Scooter Png.png" alt="SKUT Scooter">
-  </div>
-</div>
+  <section class="p-5 text-center text-md-start d-flex flex-column-reverse flex-md-row align-items-center justify-content-between flex-wrap">
+    <div class="hero-text">
+      <!-- Hero Title -->
+      <h1 class="hero-title">
+        <span class="green-text">Move</span> Freely,
+        <br>
+        <span class="ride-line">
+          Ride
+          <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="30">
+        </span>
+      </h1>
 
+      <!-- Hero description: Could be dynamic marketing text -->
+      <p class="mt-2">With SKUT, getting around Ottawa is effortless, affordable, and always within reach.</p>
 
+      <!-- Call-to-action button: Backend to ensure order.html exists and processes bookings -->
+      <a href="order.html" class="btn-book mt-3">Let's SKUT</a>
+    </div>
 
-    <!-- Banner Section -->
-    <section class="banner-section">
-        <div class="banner-slide active">
-            <img src="./images/Banner (2).jpg" alt="Banner 1">
-        </div>
-        <div class="banner-slide">
-            <img src="./images/Banner (3).jpg" alt="Banner 2">
-        </div>
-    </section>
+    <!-- Hero image -->
+    <div class="hero-image">
+      <img src="../public/images/Scooter Png.png" alt="SKUT Scooter" class="img-fluid mt-4 mt-md-0" style="max-height: 250px;">
+    </div>
+  </section>
 
+  <!-- Banner Section -->
+  <section class="banner-section mb-5">
+    <!-- Banner images: Could be dynamically loaded or managed in backend CMS -->
+    <div class="banner-slide active">
+      <img src="./images/Banner (2).jpg" alt="Banner 1" class="img-fluid w-100">
+    </div>
+    <div class="banner-slide">
+      <img src="./images/Banner (3).jpg" alt="Banner 2" class="img-fluid w-100">
+    </div>
+  </section>
 
   <!-- Travel Section -->
-  <section class="travel container">
-    <h2>Rethink City Travel. <span class="green">Start Riding Smarter</span></h2>
-    <p>
-      Leave behind crowded buses, long walks, and expensive commutes. With SKUT, you get a cleaner, faster, and more flexible way to move through Ottawa whenever you need, wherever you're headed.
-    </p>
-    <div class="travel-images">
-      <img src="./images/image1.jpg" alt="SKUT Ride">
-      <img src="./images/image2.jpg" alt="SKUT Ride">
-      <img src="./images/imgae3.jpg" alt="SKUT Ride">
+  <section class="travel container text-center my-5">
+    <!-- Section heading -->
+    <h2>Rethink City Travel. <span class="green-text">Start Riding Smarter</span></h2>
+    <!-- Description text -->
+    <p class="mt-2">Leave behind crowded buses, long walks, and expensive commutes. With SKUT, you get a cleaner, faster, and more flexible way to move through Ottawa - whenever you need, wherever you're headed.</p>
+
+    <!-- Image gallery: Can be dynamic images from backend -->
+    <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+      <img src="./images/image1.jpg" alt="SKUT Ride" width="200">
+      <img src="./images/image2.jpg" alt="SKUT Ride" width="200">
+      <img src="./images/imgae3.jpg" alt="SKUT Ride" width="200">
     </div>
   </section>
 
   <!-- Explore Scooters Section -->
-  <section class="explore-scooters" id="explore-scooters">
-    <h2>Explore Our Scooters</h2>
-    <div class="scooter-grid">
-      
-      <!-- SKUT One -->
-      <div class="scooter-card">
-        <h4>SKUT One (E-Scooter)</h4>
-        <div class="tags">
-          <span class="tag">Road Use</span>
-          <span class="tag">Long Range</span>
+  <section class="explore-scooters container py-5" id="explore-scooters">
+    <h2 class="text-center mb-4">Explore Our Rides</h2>
+    <div class="row gy-4">
+      <!-- Scooter item: SKUT One -->
+      <div class="col-md-6">
+        <div class="scooter-card p-3 h-100">
+          <h5 class="green-text fw-semibold mb-2">SKUT One (E-Scooter)</h5>
+          <!-- Features badges: Could be dynamic based on scooter properties -->
+          <div class="mb-2">
+            <span class="badge-custom">Road Use</span>
+            <span class="badge-custom">Long Range</span>
+          </div>
+
+          <!-- Scooter image -->
+          <div class="text-center mb-3">
+            <img src="../public/images/e-scooter.jpg" alt="E-Scooter" style="max-height: 180px;">
+          </div>
+
+          <!-- Specs: Can be loaded dynamically -->
+          <div class="specs mb-3 d-flex justify-content-between text-end">
+            <div>
+              <i class="bi bi-speedometer2 green-text"></i><br>
+              <span class="text-muted fw-light">Max. Speed:</span><br>
+              <strong>20–24</strong> <span class="fw-bold">km/h</span>
+            </div>
+            <div>
+              <i class="bi bi-geo-alt green-text"></i><br>
+              <span class="text-muted fw-light">Range:</span><br>
+              <strong>70</strong> <span class="fw-bold">km</span>
+            </div>
+          </div>
+
+          <!-- Pricing table: Should come from backend -->
+          <table class="price-table text-center mb-3">
+            <tr><td>1 hour</td><td>$18</td></tr>
+            <tr><td>2 hours</td><td>$30</td></tr>
+            <tr><td>4 hours</td><td>$45</td></tr>
+            <tr><td>8 hours</td><td>$60</td></tr>
+            <tr><td>1 day</td><td>$75</td></tr>
+            <tr><td>1 week</td><td>$225</td></tr>
+          </table>
+
+          <!-- Booking link: Backend to handle bookings per scooter -->
+          <a href="product.html?scooter=one" class="btn-book w-100">Let's SKUT</a>
         </div>
-        <img src="./images/e-scooter.jpg" alt="SKUT One">
-        <div class="specs-row">
-          <div class="specs-mobile">
-            <div class="spec-row">
-              <i class="bi bi-speedometer2"></i>
-         <span><strong>Max</strong>: 20–24 <span class="unit">km/h</span></span>
-  </div>
-  <div class="spec-row">
-    <i class="bi bi-geo"></i>
-    <span><strong>Range</strong>: 70 <span class="unit">km</span></span>
-  </div>
-</div>
-
-
-
-
-        </div>
-        <table class="price-table">
-          <tr><td>1 hour</td><td>$18</td></tr>
-          <tr><td>2 hours</td><td>$30</td></tr>
-          <tr><td>4 hours</td><td>$45</td></tr>
-          <tr><td>8 hours</td><td>$60</td></tr>
-          <tr><td>1 day</td><td>$75</td></tr>
-          <tr><td>1 week</td><td>$225</td></tr>
-        </table>
-        <a href="product.html?scooter=one" class="btn-book">Let's Skut</a>
       </div>
 
-      <!-- SKUT Glide -->
-      <div class="scooter-card">
-        <h4>SKUT Glide (E-Bike)</h4>
-        <div class="tags">
-          <span class="tag">Road Use</span>
-          <span class="tag">Long Range</span>
-        </div>
-        <img src="./images/ebike.jpg" alt="SKUT Glide">
-        <div class="specs-row">
-          <div class="spec-item"><i class="bi bi-speedometer2"></i> Max: 30-36 km/h</div>
-          <div class="spec-item"><i class="bi bi-geo"></i> Range: 70 km</div>
-        </div>
-        <table class="price-table">
-          <tr><td>1 hour</td><td>$18</td></tr>
-          <tr><td>2 hours</td><td>$30</td></tr>
-          <tr><td>4 hours</td><td>$45</td></tr>
-          <tr><td>8 hours</td><td>$60</td></tr>
-          <tr><td>1 day</td><td>$75</td></tr>
-          <tr><td>1 week</td><td>$225</td></tr>
-        </table>
-        <a href="product.html?scooter=glide" class="btn-book">Book Now</a>
-      </div>
+      <!-- Scooter item: SKUT Glide -->
+      <div class="col-md-6">
+        <div class="scooter-card p-3 h-100">
+          <h5 class="green-text fw-semibold mb-2">SKUT Glide (E-Bike)</h5>
+          <div class="mb-2">
+            <span class="badge-custom">Road Use</span>
+            <span class="badge-custom">Long Range</span>
+          </div>
 
+          <div class="text-center mb-3">
+            <img src="../public/images/ebike.jpg" alt="Scooter" class="img-fluid" style="max-height: 180px;">
+          </div>
+
+          <div class="specs mb-3 d-flex justify-content-between text-end">
+            <div>
+              <i class="bi bi-speedometer2 green-text"></i><br>
+              <span class="text-muted fw-light">Max. Speed:</span><br>
+              <strong>30–36</strong> <span class="fw-bold">km/h</span>
+            </div>
+            <div>
+              <i class="bi bi-geo-alt green-text"></i><br>
+              <span class="text-muted fw-light">Range:</span><br>
+              <strong>70</strong> <span class="fw-bold">km</span>
+            </div>
+          </div>
+
+          <table class="price-table text-center mb-3">
+            <tr><td>1 hour</td><td>$18</td></tr>
+            <tr><td>2 hours</td><td>$30</td></tr>
+            <tr><td>4 hours</td><td>$45</td></tr>
+            <tr><td>8 hours</td><td>$60</td></tr>
+            <tr><td>1 day</td><td>$75</td></tr>
+            <tr><td>1 week</td><td>$225</td></tr>
+          </table>
+
+          <a href="product.html?scooter=glide" class="btn-book w-100">Let's SKUT</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- How to SKUT -->
-  <section class="skut container">
+  <!-- How to SKUT Section -->
+  <section class="container my-5 text-center">
     <h2>How to SKUT</h2>
-    <div class="steps-vertical">
-      <div class="step-circle">
-        <i class="bi bi-person-check"></i>
+    <div class="d-flex justify-content-center flex-wrap gap-4 mt-4">
+      <!-- Steps: Could be dynamically generated or localized -->
+      <div class="step-circle d-flex flex-column align-items-center mx-3">
+        <i class="bi bi-person-check fs-3"></i>
         <p><strong>1.</strong> Sign Up/Login</p>
       </div>
-      <div class="step-circle">
-        <i class="bi bi-phone"></i>
+      <div class="step-circle d-flex flex-column align-items-center mx-3">
+        <i class="bi bi-phone fs-3"></i>
         <p><strong>2.</strong> Book your SKUT</p>
       </div>
-      <div class="step-circle">
-        <i class="bi bi-scooter"></i>
+      <div class="step-circle d-flex flex-column align-items-center mx-3">
+        <i class="bi bi-scooter fs-3"></i>
         <p><strong>3.</strong> Pick up your ride</p>
       </div>
-      <div class="step-circle">
-        <i class="bi bi-arrow-counterclockwise"></i>
+      <div class="step-circle d-flex flex-column align-items-center mx-3">
+        <i class="bi bi-arrow-counterclockwise fs-3"></i>
         <p><strong>4.</strong> Return after use</p>
       </div>
     </div>
   </section>
 
   <!-- Newsletter Section -->
-  <section class="newsletter-section">
+  <section class="newsletter-section text-center">
     <div class="container">
-      <h2 class="newsletter-heading">Start Riding<br>Smarter With<br>SK <span class="logo-green">ut</span></h2>
-      <div class="newsletter">
-        <p>Subscribe to our newsletter to get updates on our latest offers!</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Subscribe</button>
+      <!-- Headline: Could be updated dynamically -->
+      <h2 class="text-start mb-4">
+        Start Riding<br>Smarter With<br>
+        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" style="height: 20px;">
+      </h2>
+    </div>
+
+    <!-- Newsletter subscription form -->
+    <div class="newsletter-banner">
+      <div class="container">
+        <p class="mb-3">Subscribe to our newsletter to get updates on our latest offers!</p>
+        <form class="d-flex flex-wrap justify-content-center" action="#" method="POST">
+          <!-- Backend should handle subscription logic here -->
+          <input type="email" name="email" placeholder="Enter your email" required class="form-control me-2 mb-2 mb-md-0" style="max-width: 250px;">
+          <button type="submit" class="btn btn-dark text-white fw-bold">Subscribe</button>
         </form>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-flex justify-content-between flex-wrap align-items-center">
       <div class="footer-logo">
-        <h2>SK <span class="logo-green">ut</span></h2>
-        <p>At SKUT, we're your affordable, eco-friendly solution for getting around Ottawa with speed and style.</p>
+        <img src="../public/images/SKUT (Black background) (1).png" alt="SKUT Logo" height="30" />
+        <p class="mt-2 mb-0">At SKUT, we're more than just a scooter rental platform-  we're your affordable, eco-friendly around Ottawa with speed, safety, and style.</p>
       </div>
+      
       <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="order.html">Rent a Scooter</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <!-- Footer navigation links -->
+        <a href="index.html" class="text-white d-block">Home</a>
+        <a href="order.html" class="text-white d-block">Rent a Scooter</a>
+        <a href="about.html" class="text-white d-block">About Us</a>
+        <a href="contact.html" class="text-white d-block">Contact Us</a>
       </div>
-      <div class="social-links">
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-x"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
+      <div class="footer-social">
+        <!-- Social media links: Backend can populate actual URLs -->
+        <a href="#"><i class="bi bi-facebook text-white me-2"></i></a>
+        <a href="#"><i class="bi bi-x text-white me-2"></i></a>
+        <a href="#"><i class="bi bi-instagram text-white"></i></a>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="text-center mt-3">
       <p>SKUT &copy; 2025. All Rights Reserved</p>
     </div>
   </footer>
 
-  <!-- JS -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // /
-        let currentBanner = 0;
-        const banners = document.querySelectorAll('.banner-slide');
-  
-        setInterval(() => {
-            banners[currentBanner].classList.remove('active');
-            currentBanner = (currentBanner + 1) % banners.length;
-            banners[currentBanner].classList.add('active');
-        }, 4000);
-
-
-    </script>
+    // Simple banner slideshow script
+    let currentBanner = 0;
+    const banners = document.querySelectorAll('.banner-slide');
+    setInterval(() => {
+      banners[currentBanner].classList.remove('active');
+      currentBanner = (currentBanner + 1) % banners.length;
+      banners[currentBanner].classList.add('active');
+    }, 4000);
+  </script>
 </body>
 </html>

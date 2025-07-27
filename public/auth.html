@@ -2,141 +2,171 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SKUT - Auth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SKUT - Login / Sign Up</title>
 
-  <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Bootstrap CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Shared External CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific Internal CSS -->
   <style>
+    /* Basic styling for the auth page to fit the site design */
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
+      background: #fff;
       color: #333;
-      margin: 0;
-      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .auth-container {
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 30px;
+      max-width: 480px;
+      margin: 3rem auto 5rem;
+      padding: 2.5rem 2rem;
       border: 1px solid #eee;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 12px rgb(0 0 0 / 0.05);
+      background: #fff;
     }
 
-    .auth-container h1 {
-      font-size: 32px;
+    /* Logo styling */
+    .auth-logo h1 {
       font-weight: 700;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
       text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .auth-logo span {
+      color: #00B050; /* Brand green */
     }
 
-    .auth-container h1 span {
-      color: #00aa55;
-    }
-
+    /* Toggle buttons to switch between login and signup */
     .form-toggle {
       display: flex;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+      gap: 1.5rem;
     }
-
     .form-toggle button {
-      border: none;
       background: none;
-      padding: 10px 20px;
+      border: none;
       font-weight: 600;
-      cursor: pointer;
+      font-size: 1.1rem;
       color: #666;
-      border-bottom: 2px solid transparent;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      padding-bottom: 0.3rem;
+      transition: all 0.3s ease;
+    }
+    .form-toggle button.active {
+      color: #00B050;
+      border-color: #00B050;
     }
 
-    .form-toggle .active {
-      color: #00aa55;
-      border-color: #00aa55;
+    /* Hide inactive form */
+    form {
+      display: none;
     }
-
-    .form-group label {
-      font-weight: 600;
-      margin-bottom: 5px;
+    form.active {
       display: block;
     }
 
-    .form-group input {
+    /* Form field styling */
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+      padding: 0.5rem 0.75rem;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 1rem;
     }
 
-    .form-action button {
-      width: 100%;
-      padding: 12px;
-      background-color: #00aa55;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      font-weight: 600;
-      margin-top: 10px;
-    }
-
+    /* Checkbox group for remember me and terms */
     .checkbox-group {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
     }
-
-    .toggle-text {
-      text-align: center;
-      margin-top: 20px;
+    .checkbox-group input {
+      cursor: pointer;
     }
-
-    .toggle-text a {
-      color: #00aa55;
+    .checkbox-group a {
+      color: #00B050;
       text-decoration: none;
       font-weight: 600;
     }
+    .checkbox-group a:hover {
+      text-decoration: underline;
+    }
 
-    .back-link {
-      font-weight: bold;
+    /* Submit buttons */
+    .form-action button {
+      width: 100%;
+      background-color: #00B050;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.6rem 0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .form-action button:hover {
+      background-color: #009243;
+    }
+
+    /* Text below the forms to switch forms */
+    .toggle-text {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+    .toggle-text a {
+      color: #00B050;
+      cursor: pointer;
+      font-weight: 600;
       text-decoration: none;
-      display: inline-block;
-      margin: 15px 0 0 20px;
-      font-size: 16px;
-      color: #000000;
+      margin-left: 0.25rem;
+    }
+    .toggle-text a:hover {
+      text-decoration: underline;
     }
 
-    .back-link::before {
-      content: "← ";
-      color: #00aa55;
-    }
-
+    /* Responsive */
     @media (max-width: 600px) {
       .auth-container {
-        margin: 20px;
-        padding: 20px;
+        margin: 2rem 1rem 4rem;
+        padding: 2rem 1.5rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar (Same as index) -->
+  <!-- Navbar: Same as your homepage navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-2">
     <div class="container-fluid px-4">
       <a class="navbar-brand" href="index.html">
-        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25">
+        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -148,159 +178,184 @@
           <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
           <li class="nav-item">
-            <a href="auth.html" class="btn btn-login ms-2">Login/Sign Up</a>
+            <a href="auth.html" class="btn btn-success ms-2">Login/Sign Up</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Auth Container -->
-  <div class="auth-container">
-    <div class="logo">
+  <!-- Main Auth Container -->
+  <section class="auth-container" aria-label="Authentication forms">
+
+    <!-- Logo -->
+    <div class="auth-logo">
       <h1>Sk<span>ut</span></h1>
     </div>
 
-    <!-- Toggle -->
-    <div class="form-toggle">
-      <button id="loginToggle" class="active" onclick="showForm('login')">Login</button>
-      <button id="signupToggle" onclick="showForm('signup')">Sign Up</button>
+    <!-- Toggle Buttons: Switch between Login and Signup -->
+    <div class="form-toggle" role="tablist" aria-label="Login and Signup toggle">
+      <button id="loginToggle" class="active" role="tab" aria-selected="true" aria-controls="loginForm" onclick="showForm('login')">Login</button>
+      <button id="signupToggle" role="tab" aria-selected="false" aria-controls="signupForm" onclick="showForm('signup')">Sign Up</button>
     </div>
 
     <!-- Login Form -->
-    <div id="loginForm">
-      <div class="form-group mb-3">
-        <label>Email Address</label>
-        <input type="email" placeholder="youremail@example.com" />
+    <!-- Backend note: On form submission, send email & password to backend login endpoint -->
+    <form id="loginForm" class="active" aria-labelledby="loginToggle" novalidate>
+      <div class="form-group">
+        <label for="loginEmail">Email Address</label>
+        <input id="loginEmail" name="email" type="email" placeholder="youremail@example.com" required />
       </div>
-      <div class="form-group mb-3">
-        <label>Password</label>
-        <input type="password" placeholder="Min. 8 Characters" />
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" name="password" type="password" placeholder="Min. 8 Characters" required />
       </div>
-      <div class="d-flex justify-content-between mb-3 checkbox-group">
-        <label><input type="checkbox" /> Remember me</label>
-        <a href="#">Forgot Password?</a>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="rememberMe" id="rememberMe" /> Remember me</label>
+        <a href="#">Forgot Password?</a> <!-- Backend: Implement password reset flow -->
       </div>
       <div class="form-action">
-        <button type="submit">Login</button>
+        <button type="submit">Login</button> <!-- Backend: Validate credentials and handle login -->
       </div>
-    </div>
+    </form>
 
     <!-- Sign Up Form -->
-    <div id="signupForm">
-      <div class="form-group mb-3">
-        <label>First Name</label>
-        <input type="text" placeholder="e.g., Jane" />
+    <!-- Backend note: On submit, send these fields to backend signup endpoint -->
+    <form id="signupForm" aria-labelledby="signupToggle" novalidate>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input id="firstName" name="firstName" type="text" placeholder="Jane" required />
       </div>
-      <div class="form-group mb-3">
-        <label>Last Name</label>
-        <input type="text" placeholder="e.g., Doe" />
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" name="lastName" type="text" placeholder="Doe" required />
       </div>
-      <div class="form-group mb-3">
-        <label>Email Address</label>
-        <input type="email" placeholder="e.g., jane@example.com" />
+      <div class="form-group">
+        <label for="signupEmail">Email Address</label>
+        <input id="signupEmail" name="email" type="email" placeholder="jane@example.com" required />
       </div>
-      <div class="form-group mb-3">
-        <label>Telephone</label>
-        <input type="tel" placeholder="e.g., 555-123-4567" />
+      <div class="form-group">
+        <label for="telephone">Telephone</label>
+        <input id="telephone" name="phone" type="tel" placeholder="555-123-4567" required />
       </div>
-      <div class="form-group mb-3">
-        <label>Create Password</label>
-        <input type="password" placeholder="At least 8 characters" />
+      <div class="form-group">
+        <label for="signupPassword">Create Password</label>
+        <input id="signupPassword" name="password" type="password" placeholder="At least 8 characters" required />
       </div>
-      <div class="form-group mb-3">
-        <label>Confirm Password</label>
-        <input type="password" placeholder="Re-enter password" />
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-enter password" required />
       </div>
-      <div class="checkbox-group mb-3">
-        <input type="checkbox" id="agree" />
-        I agree to the <a href="#">Privacy Policy</a>
+      <div class="checkbox-group">
+        <input type="checkbox" id="agreePolicy" name="agreePolicy" required />
+        <label for="agreePolicy" style="margin:0;">
+          I agree to the <a href="#">Privacy Policy</a> <!-- Backend: Ensure user accepts terms -->
+        </label>
       </div>
       <div class="form-action">
-        <button type="submit">Create Account</button>
+        <button type="submit">Create Account</button> <!-- Backend: Validate & create user account -->
       </div>
-    </div>
+    </form>
 
-    <!-- Toggle Text -->
-    <div class="toggle-text">
+    <!-- Text below forms to toggle between login/signup -->
+    <div class="toggle-text" aria-live="polite">
       <span id="toggleNote">Don't have an account?</span>
-      <a href="#" onclick="toggleText()">Click here</a>
-    </div>
-  </div>
-
-  <!-- Newsletter Section -->
-  <section class="newsletter-section mt-5">
-    <div class="container">
-      <div class="newsletter">
-        <p>Subscribe to our newsletter to get updates on our latest offers!</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
+      <a href="#" id="toggleLink">Click here</a>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
+  <!-- Newsletter Subscription Section -->
+  <!-- Backend: Handle email subscription form submission -->
+  <section class="newsletter-section mt-auto py-5" style="background-color: #00B050;">
+    <div class="container text-center">
+      <p class="text-white mb-3">Subscribe to our newsletter to get updates on our latest offers!</p>
+      <form class="d-flex justify-content-center flex-wrap" action="#" method="POST" aria-label="Newsletter subscription form">
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          class="form-control me-2 mb-2 mb-md-0"
+          style="max-width: 280px;"
+        />
+        <button type="submit" class="btn btn-dark fw-bold px-4">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer: Same as homepage footer -->
+  <footer class="bg-dark text-white py-4 mt-0">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
       <div class="footer-logo">
-        <h2>SK <span class="logo-green">ut</span></h2>
-        <p>At SKUT, we're your affordable, eco-friendly solution for getting around Ottawa with speed and style.</p>
+        <img src="../public/images/SKUT (Black background) (1).png" alt="SKUT Logo" height="30" />
+        <p class="mt-2 mb-0" style="max-width: 300px;">
+          At SKUT, we're your affordable, eco-friendly solution for getting around Ottawa with speed and style.
+        </p>
       </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="order.html">Rent a Scooter</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+      <div class="footer-links d-flex flex-column flex-sm-row gap-3">
+        <a href="index.html" class="text-white">Home</a>
+        <a href="order.html" class="text-white">Rent a Scooter</a>
+        <a href="about.html" class="text-white">About Us</a>
+        <a href="contact.html" class="text-white">Contact Us</a>
       </div>
-      <div class="social-links">
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-x"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
+      <div class="footer-social">
+        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white me-3"><i class="bi bi-x"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
-    <div class="footer-bottom text-center mt-3">
-      <p>SKUT &copy; 2025. All Rights Reserved</p>
+    <div class="text-center mt-3">
+      <small>SKUT &copy; 2025. All Rights Reserved</small>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script>
-    function showForm(type) {
-      const loginForm = document.getElementById('loginForm');
-      const signupForm = document.getElementById('signupForm');
-      const loginToggle = document.getElementById('loginToggle');
-      const signupToggle = document.getElementById('signupToggle');
-      const toggleNote = document.getElementById('toggleNote');
+    // Grab toggle buttons and forms
+    const loginToggle = document.getElementById('loginToggle');
+    const signupToggle = document.getElementById('signupToggle');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const toggleNote = document.getElementById('toggleNote');
+    const toggleLink = document.getElementById('toggleLink');
 
+    // Function to switch between login and signup forms
+    function showForm(type) {
       if (type === 'login') {
-        loginForm.style.display = 'block';
-        signupForm.style.display = 'none';
         loginToggle.classList.add('active');
         signupToggle.classList.remove('active');
-        toggleNote.innerText = "Don't have an account?";
+        loginToggle.setAttribute('aria-selected', 'true');
+        signupToggle.setAttribute('aria-selected', 'false');
+        loginForm.classList.add('active');
+        signupForm.classList.remove('active');
+        toggleNote.textContent = "Don't have an account?";
+        toggleLink.textContent = "Click here";
       } else {
-        loginForm.style.display = 'none';
-        signupForm.style.display = 'block';
-        loginToggle.classList.remove('active');
         signupToggle.classList.add('active');
-        toggleNote.innerText = "Already have an account?";
+        loginToggle.classList.remove('active');
+        signupToggle.setAttribute('aria-selected', 'true');
+        loginToggle.setAttribute('aria-selected', 'false');
+        signupForm.classList.add('active');
+        loginForm.classList.remove('active');
+        toggleNote.textContent = "Already have an account?";
+        toggleLink.textContent = "Click here";
       }
     }
 
-    function toggleText() {
-      const loginForm = document.getElementById('loginForm');
-      if (loginForm.style.display === 'none') {
-        showForm('login');
-      } else {
+    // Toggle form on link click
+    toggleLink.addEventListener('click', e => {
+      e.preventDefault();
+      if (loginForm.classList.contains('active')) {
         showForm('signup');
+      } else {
+        showForm('login');
       }
-    }
+    });
 
-    // Default to login form
+    // Initialize page to show login form
     showForm('login');
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,186 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - SKUT</title>
 
-    
-    <!-- Bootstrap & Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Bootstrap CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Shared CSS -->
-    <link rel="stylesheet" href="style.css">
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background-color: #fafafa;
-        padding: 24px 16px;
-        color: #1c1c1e;
-        margin: 0;
-      }
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="style.css" />
 
-      h2 {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 8px;
-      }
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fafafa;
+      padding: 24px 16px;
+      color: #1c1c1e;
+      margin: 0;
+    }
 
-      p {
-        font-size: 14px;
-        color: #6e6e73;
-        margin-bottom: 24px;
-      }
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
 
-      .contact-methods {
-        display: flex;
-        gap: 16px;
-        margin-bottom: 32px;
-        flex-wrap: wrap;
-      }
+    p {
+      font-size: 14px;
+      color: #6e6e73;
+      margin-bottom: 24px;
+    }
 
-      .contact-box {
-        flex: 1;
-        min-width: 140px;
-        background-color: #fff;
-        border: 1px solid #e5e5ea;
-        border-radius: 12px;
-        padding: 24px;
-        text-align: center;
-      }
+    .contact-methods {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
 
-      .contact-box svg {
-        color: #00c853;
-        width: 24px;
-        height: 24px;
-        margin-bottom: 8px;
-      }
+    .contact-box {
+      flex: 1;
+      min-width: 140px;
+      background-color: #fff;
+      border: 1px solid #e5e5ea;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
 
-      .contact-box .label {
-        font-size: 13px;
-        color: #1c1c1e;
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+    .contact-box svg {
+      color: #00c853;
+      width: 24px;
+      height: 24px;
+      margin-bottom: 8px;
+    }
 
-      .contact-box .value {
-        font-size: 14px;
-        color: #1c1c1e;
-      }
+    .contact-box .label {
+      font-size: 13px;
+      color: #1c1c1e;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
 
-      .section-title {
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 8px;
-        margin-top: 24px;
-      }
+    .contact-box .value {
+      font-size: 14px;
+      color: #1c1c1e;
+    }
 
-      .hours {
-        font-size: 14px;
-        margin-bottom: 4px;
-      }
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      margin-top: 24px;
+    }
 
-      .bold {
-        font-weight: 600;
-      }
+    .hours {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
 
-      form {
-        margin-top: 24px;
-      }
+    .bold {
+      font-weight: 600;
+    }
 
-      input, textarea {
-        width: 100%;
-        padding: 12px;
-        font-size: 14px;
-        border: 1px solid #e5e5ea;
-        border-radius: 8px;
-        margin-bottom: 16px;
-        background-color: white;
-      }
+    form {
+      margin-top: 24px;
+    }
 
-      textarea {
-        resize: vertical;
-        min-height: 100px;
-      }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 14px;
+      border: 1px solid #e5e5ea;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      background-color: white;
+    }
 
-      .btn {
-        width: 100%;
-        background-color: #00c853;
-        color: white;
-        font-size: 15px;
-        font-weight: 600;
-        padding: 14px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-      }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
 
-      .btn:active {
-        background-color: #00b44c;
-      }
-    </style>
-  </head>
-  <body>
-      <!-- Navbar (Same as index.html) -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-2">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand" href="index.html">
-        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="#explore-scooters" class="nav-link">Rent a Scooter</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link active">About Us</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item">
-            <a href="auth.html" class="btn btn-login ms-2">Login/Sign Up</a>
-          </li>
-        </ul>
-      </div>
+    .btn {
+      width: 100%;
+      background-color: #00c853;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn:active {
+      background-color: #00b44c;
+    }
+  </style>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-2">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="index.html">
+      <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#explore-scooters" class="nav-link">Rent a Scooter</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li class="nav-item">
+          <a href="auth.html" class="btn btn-login ms-2">Login/Sign Up</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
-    <h2>Contact Us</h2>
-    <p>You can reach out to us via any of our channels and we’ll provide you with prompt support.</p>
+  <!-- Main content -->
+  <h2>Contact Us</h2>
+  <p>You can reach out to us via any of our channels and we’ll provide you with prompt support.</p>
 
-    <div class="contact-methods">
-      <div class="contact-box">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21 11.72 11.72 0 0 0 3.7.59 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17.93 17.93 0 0 1 2 6a1 1 0 0 1 1-1h3.6a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .59 3.7 1 1 0 0 1-.21 1.09Z"/></svg>
-        <div class="label">Phone</div>
-        <div class="value">343 9962438</div>
-      </div>
-      <div class="contact-box">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.01L12 13 4 6.01V6h16ZM4 18V8.12l7.42 6.23a1 1 0 0 0 1.16 0L20 8.12V18H4Z"/></svg>
-        <div class="label">Email</div>
-        <div class="value">skutsupport@gmail.com</div>
-      </div>
+  <div class="contact-methods">
+    <div class="contact-box">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21 11.72 11.72 0 0 0 3.7.59 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17.93 17.93 0 0 1 2 6a1 1 0 0 1 1-1h3.6a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .59 3.7 1 1 0 0 1-.21 1.09Z" />
+      </svg>
+      <div class="label">Phone</div>
+      <div class="value">343 9962438</div>
     </div>
+    <div class="contact-box">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.01L12 13 4 6.01V6h16ZM4 18V8.12l7.42 6.23a1 1 0 0 0 1.16 0L20 8.12V18H4Z" />
+      </svg>
+      <div class="label">Email</div>
+      <div class="value">skutsupport@gmail.com</div>
+    </div>
+  </div>
 
-    <div class="section-title">Business Hours</div>
-    <div class="hours"><span class="bold">MONDAYS TO SATURDAYS</span><br />07:00 - 22:00</div>
-    <div class="hours"><span class="bold">SUNDAYS</span><br />12:00 - 22:00</div>
+  <div class="section-title">Business Hours</div>
+  <div class="hours"><span class="bold">MONDAYS TO SATURDAYS</span><br />07:00 - 22:00</div>
+  <div class="hours"><span class="bold">SUNDAYS</span><br />12:00 - 22:00</div>
 
-    <div class="section-title">Get in Touch</div>
-    <p>Whether you have feedback, inquiries or a complaint, we're just a message or call away. Contact us now!</p>
+  <div class="section-title">Get in Touch</div>
+  <p>Whether you have feedback, inquiries or a complaint, we're just a message or call away. Contact us now!</p>
 
-    <form>
-      <input type="text" placeholder="Name" />
-      <input type="email" placeholder="Email" />
-      <input type="text" placeholder="Subject" />
-      <textarea placeholder="Message"></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
+  <form>
+    <input type="text" placeholder="Name" required />
+    <input type="email" placeholder="Email" required />
+    <input type="text" placeholder="Subject" required />
+    <textarea placeholder="Message" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
 
-    
-
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

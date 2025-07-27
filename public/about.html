@@ -2,85 +2,166 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SKUT - About Us</title>
 
-  <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Bootstrap CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Shared CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific internal CSS -->
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #333;
       margin: 0;
       padding: 0;
     }
 
-    .container {
-      max-width: 750px;
-      padding: 20px;
-      margin: auto;
-    }
-
     .back-link {
-      font-weight: bold;
+      font-weight: 700;
       text-decoration: none;
-      display: inline-block;
-      margin: 15px 0;
-      font-size: 16px;
-      color: #000000;
-    }
-
-    .back-link::before {
-      content: "← ";
       color: #00aa55;
+      display: inline-block;
+      margin: 20px 0;
+      font-size: 16px;
     }
 
-    .about-img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 25px;
+    .back-link:hover {
+      text-decoration: underline;
     }
 
     h2 {
       color: #00aa55;
-      margin-top: 30px;
+      margin-top: 2.5rem;
       font-weight: 700;
-    }
-
-    .section {
-      margin-top: 20px;
     }
 
     .value-title {
       font-weight: 600;
-      margin-top: 15px;
+      margin-top: 1.5rem;
       color: #222;
+    }
+
+    .about-img {
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Responsive container max-width */
+    .container {
+      max-width: 750px;
+      padding: 1rem 1.5rem;
+      margin: auto;
+    }
+
+    /* Newsletter styling override */
+    .newsletter-section {
+      background-color: #f5f5f5;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    .newsletter p {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .newsletter-form input {
+      max-width: 320px;
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 0.5rem;
+    }
+    .newsletter-form button {
+      background-color: #00aa55;
+      border: none;
+      color: #fff;
+      padding: 0.5rem 1.5rem;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .newsletter-form button:hover {
+      background-color: #008040;
+    }
+
+    /* Footer overrides */
+    .footer {
+      background-color: #222;
+      color: #ddd;
+      padding: 3rem 1.5rem 2rem;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      color: #00aa55;
+      text-decoration: none;
+      margin-right: 1.5rem;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .footer-logo h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span.logo-green {
+      color: #00aa55;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .footer-links, .social-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      color: #777;
     }
 
     @media (max-width: 600px) {
       .container {
-        padding: 15px;
+        padding: 1rem;
+      }
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-links, .social-links {
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar (Same as index.html) -->
+  <!-- Navbar (reuse from index.html for consistency) -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-2">
     <div class="container-fluid px-4">
       <a class="navbar-brand" href="index.html">
-        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25">
+        <img src="../public/images/SKUT (White background) (1).png" alt="SKUT Logo" height="25" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -99,28 +180,27 @@
     </div>
   </nav>
 
-  <!-- About Section -->
-  <div class="container">
-    <a href="index.html" class="back-link">back</a>
+  <!-- Main content container -->
+  <main class="container" role="main">
 
-    <img src="./images/about.jpg" alt="SKUT Scooters" class="about-img img-fluid" />
+    <a href="index.html" class="back-link">← Back</a>
+
+    <img src="./images/about.jpg" alt="SKUT Scooters" class="about-img" />
 
     <h2>About SKUT</h2>
     <p>
       SKUT was founded in Ottawa by international student Russell Young, who arrived in Canada with a dream of building something meaningful—not just for himself, but for the city he now called home...
     </p>
-
     <p>
       What began as a daily frustration—waiting 25 minutes for a crowded bus—sparked a bigger idea...
     </p>
-
     <p>
       SKUT is not just a business—it’s a mission-driven solution born out of necessity and backed by deep local ambition.
     </p>
 
     <h2>Our Values</h2>
 
-    <div class="section">
+    <section>
       <p class="value-title">Community First Design</p>
       <p>We build our services around the needs of Ottawa, ensuring SKUT is a truly local solution...</p>
 
@@ -135,47 +215,49 @@
 
       <p class="value-title">Zero-Emissions Commitment In All Operations</p>
       <p>We’re dedicated to a cleaner, greener Ottawa...</p>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <!-- Newsletter Section -->
-  <section class="newsletter-section">
-    <div class="container">
-      <div class="newsletter">
-        <p>Subscribe to our newsletter to get updates on our latest offers!</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required />
-          <button type="submit">Subscribe</button>
+  <!-- Newsletter subscription form -->
+    <div class="newsletter-banner">
+      <div class="container">
+        <p class="mb-3">Subscribe to our newsletter to get updates on our latest offers!</p>
+        <form class="d-flex flex-wrap justify-content-center" action="#" method="POST">
+          <!-- Backend should handle subscription logic here -->
+          <input type="email" name="email" placeholder="Enter your email" required class="form-control me-2 mb-2 mb-md-0" style="max-width: 250px;">
+          <button type="submit" class="btn btn-dark text-white fw-bold">Subscribe</button>
         </form>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-flex justify-content-between flex-wrap align-items-center">
       <div class="footer-logo">
-        <h2>SK <span class="logo-green">ut</span></h2>
-        <p>At SKUT, we're your affordable, eco-friendly solution for getting around Ottawa with speed and style.</p>
+        <img src="../public/images/SKUT (Black background) (1).png" alt="SKUT Logo" height="30" />
+        <p class="mt-2 mb-0">At SKUT, we're more than just a scooter rental platform-  we're your affordable, eco-friendly around Ottawa with speed, safety, and style.</p>
       </div>
+      
       <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="order.html">Rent a Scooter</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <!-- Footer navigation links -->
+        <a href="index.html" class="text-white d-block">Home</a>
+        <a href="order.html" class="text-white d-block">Rent a Scooter</a>
+        <a href="about.html" class="text-white d-block">About Us</a>
+        <a href="contact.html" class="text-white d-block">Contact Us</a>
       </div>
-      <div class="social-links">
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-x"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
+      <div class="footer-social">
+        <!-- Social media links: Backend can populate actual URLs -->
+        <a href="#"><i class="bi bi-facebook text-white me-2"></i></a>
+        <a href="#"><i class="bi bi-x text-white me-2"></i></a>
+        <a href="#"><i class="bi bi-instagram text-white"></i></a>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="text-center mt-3">
       <p>SKUT &copy; 2025. All Rights Reserved</p>
     </div>
   </footer>
-
-  <!-- JS -->
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

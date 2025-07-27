@@ -1,169 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Order Details</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKUT Booking Confirmation</title>
+  <style>
+    /* Reset and base styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      height: 100vh;
+    }
 
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background-color: #fff;
-        padding: 24px 16px 16px 16px;
-        color: #1c1c1e;
-      }
+    /* Modal overlay covers entire screen and dims background */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000; /* Ensure modal appears above all other content */
+    }
 
-      h2 {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+    /* Modal box styling */
+    .modal-content {
+      position: relative;
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
 
-      .subtitle {
-        font-size: 14px;
-        color: #6e6e73;
-        margin-bottom: 24px;
-      }
+    /* Close button styling */
+    .close-icon {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
 
-      .card {
-        border: 1px solid #e5e5ea;
-        border-radius: 12px;
-        padding: 16px;
-        margin-bottom: 24px;
-      }
+    .close-icon:hover {
+      color: #e11d48;
+    }
 
-      .card-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 16px;
-      }
+    /* Heading styles */
+    .modal-content h2 {
+      font-size: 20px;
+      color: #333;
+      line-height: 1.3;
+    }
 
-      .card-row:last-of-type {
-        margin-bottom: 0;
-      }
+    /* Green circular checkmark to visually confirm success */
+    .checkmark {
+      background-color: #22c55e; /* Tailwind green-500 */
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      font-size: 48px;
+      margin: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-      .two-column {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px 24px;
-        margin-bottom: 16px;
-      }
+    /* Confirmation text */
+    .modal-content p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
 
-      .item {
-        display: flex;
-        flex-direction: column;
-      }
+  <!--
+    Modal Overlay:
+    - Visible when booking is successfully completed.
+    - Covers full viewport to prevent interaction with underlying page.
+    - Backend should trigger this modal to display after successful booking/payment confirmation.
+  -->
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+    <div class="modal-content">
 
-      .label {
-        font-size: 13px;
-        color: #6e6e73;
-        margin-bottom: 4px;
-      }
+      <!--
+        Close Button:
+        - Allows user to close the modal.
+        - Backend can optionally reset booking state on close if needed.
+      -->
+      <span class="close-icon" role="button" tabindex="0" aria-label="Close booking confirmation"
+            onclick="closeModal()"
+            onkeydown="if(event.key==='Enter' || event.key===' ') closeModal()">
+        ×
+      </span>
 
-      .value {
-        font-size: 15px;
-        font-weight: 500;
-        color: #1c1c1e;
-      }
+      <!--
+        Confirmation Heading:
+        - Indicates booking success to the user.
+        - Can be dynamically updated by backend if needed (e.g., include booking ID).
+      -->
+      <h2 id="modalHeading">Congratulations! You have now<br>booked a SKUT</h2>
 
-      .total {
-        text-align: right;
-        font-size: 16px;
-        font-weight: 600;
-        margin-top: 20px;
-      }
+      <!--
+        Visual Confirmation Checkmark:
+        - Purely decorative, indicates success.
+        - aria-hidden="true" since it's not necessary for screen readers.
+      -->
+      <div class="checkmark" aria-hidden="true">✓</div>
 
-      .disclaimer {
-        font-size: 13px;
-        color: #6e6e73;
-        line-height: 1.5;
-        margin-bottom: 24px;
-      }
-
-      .btn {
-        width: 100%;
-        background-color: #00c853;
-        color: white;
-        font-size: 16px;
-        font-weight: 600;
-        padding: 14px 0;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-
-      .btn:active {
-        background-color: #00b44c;
-      }
-
-      html, body {
-        min-height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <body>
-  <div style="position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; z-index: 1000;">
-    <div style="background: #fff; border-radius: 12px; padding: 24px 16px 16px 16px; width: 90%; max-width: 400px; position: relative;">
-      
-      <!-- Cancel button -->
-      <button style="position: absolute; top: 12px; right: 12px; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
-
-      <!-- Modal content -->
-      <h2>Order Details</h2>
-      <p class="subtitle">Please confirm the details of your order</p>
-
-      <div class="card">
-        <div class="item" style="margin-bottom: 16px;">
-          <div class="label">Scooter Type</div>
-          <div class="value">SKUT One</div>
-        </div>
-
-        <div class="two-column">
-          <div class="item">
-            <div class="label">Rental Date</div>
-            <div class="value">17-08-25</div>
-          </div>
-          <div class="item">
-            <div class="label">Order ID</div>
-            <div class="value">SKT123</div>
-          </div>
-          <div class="item">
-            <div class="label">Start Time</div>
-            <div class="value">16:00</div>
-          </div>
-          <div class="item">
-            <div class="label">End Time</div>
-            <div class="value">18:00</div>
-          </div>
-          <div class="item">
-            <div class="label">Duration</div>
-            <div class="value">2 hours</div>
-          </div>
-        </div>
-
-        <div class="two-column" style="margin-top: 8px; font-size: 13px;">
-          <div class="item">
-            <div class="label" style="font-size: 13px;">Total</div>
-          </div>
-          <div class="item">
-            <div class="value" style="font-size: 13px; font-weight: 500;">30</div>
-          </div>
-        </div>
-      </div>
-
-      <p class="disclaimer">
-        * By continuing, you confirm that all booking details are correct and that you’ve reviewed SKUT’s safety guidelines. Your payment will be processed securely, and a trip receipt will be issued after completion.
-      </p>
-
-      <button class="btn">Proceed</button>
+      <!--
+        Additional Info:
+        - Informs user that booking details are sent via email.
+        - Backend should ensure this email is actually sent.
+      -->
+      <p>Details of your order have now<br>been sent to your email address.</p>
     </div>
   </div>
+
+  <script>
+    // Function to close/hide the modal overlay
+    // Backend could hook into this event to reset booking state or redirect if necessary
+    function closeModal() {
+      document.getElementById('bookingModal').style.display = 'none';
+    }
+  </script>
+
 </body>
-  </body>
 </html>

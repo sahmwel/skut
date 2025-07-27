@@ -1,57 +1,77 @@
 /* ====== GLOBAL STYLES ====== */
+/* Reset margin, padding, and set box-sizing for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Body font, background color, text color, and line height */
 body {
   font-family: 'Poppins', sans-serif;
   background: #f8f8f8;
   color: #333;
   line-height: 1.6;
 }
+
+/* Heading styles */
 h1, 
 h2, 
 h3 {
   font-weight: 700;
   color: #222;
 }
+
+/* Anchor tag default styles */
 a {
   text-decoration: none;
   color: inherit;
 }
+
+/* Image responsive behavior */
 img {
   max-width: 100%;
   display: block;
 }
+
+/* Container wrapper for centering content and max width */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* Color helper classes */
 .green { 
   color: #1db954; 
 }
+
 .logo-green { 
   color: #4caf50; 
 }
 
 /* ====== NAVBAR ====== */
+/* Navbar background and padding */
 .navbar {
   background: #fff;
   padding: 1rem 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
+
+/* Navbar link styling */
 .navbar .nav-link {
   margin: 0 12px;
   font-weight: 500;
   color: #333 !important;
   transition: color 0.3s;
 }
+
+/* Navbar link hover effect */
 .navbar .nav-link:hover {
   color: #2e7d32 !important;
 }
 
+/* Login button styles */
 .btn-login {
   background: #1db954;
   color: #fff;
@@ -60,15 +80,20 @@ img {
   font-weight: 500;
   transition: 0.3s;
 }
+
+/* Login button hover */
 .btn-login:hover {
   background: #256629;
 }
 
-/* ====== HERO ====== */
+/* ====== HERO SECTION ====== */
+/* Container background and vertical padding */
 .hero {
   background: #fff;
   padding: 80px 0;
 }
+
+/* Flex container for hero content alignment */
 .hero-content {
   display: flex;
   align-items: center;
@@ -77,19 +102,41 @@ img {
   flex-wrap: nowrap;
 }
 
+/* Hero text container sizing */
 .hero-text {
   flex: 1;
 }
+
+/* Hero main heading font size and color */
 .hero-text h1 {
   font-size: 2.8rem;
   line-height: 1.2;
   color: #111;
 }
+
+/* Hero title styling */
+.hero-title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: black;
+}
+
+/* Inline flex container for "Ride" text with logo */
+.ride-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Space between text and logo */
+  color: black;
+}
+
+/* Additional hero text styles */
 .hero-text .line1 {
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
+
 .hero-text .ride-text {
   display: flex;
   align-items: center;
@@ -97,16 +144,20 @@ img {
   font-weight: 600;
   gap: 0.5rem;
 }
+
 .hero-text .ride-text img {
   height: 2.2rem;
   object-fit: contain;
 }
 
+/* Hero paragraph styling */
 .hero-text p {
   margin: 15px 0 25px;
   font-size: 1.1rem;
   color: #555;
 }
+
+/* Call-to-action button in hero */
 .btn-book {
   display: inline-block;
   background:#1db954;
@@ -116,70 +167,76 @@ img {
   font-size: 1rem;
   transition: background 0.3s;
 }
+
+/* Button hover */
 .btn-book:hover {
   background: #256629;
 }
 
+/* Hero image container flex sizing and alignment */
 .hero-image {
   flex: 1;
   display: flex;
   justify-content: center;
 }
+
+/* Hero image sizing */
 .hero-image img {
   max-width: 100%;
   height: auto;
 }
 
-/* ====== HERO ANIMATION (≥1024px) ====== */
-@media (min-width: 1024px) {
-  .hero-content {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInHero 0.8s ease-out forwards;
-  }
+/* ====== HERO ANIMATION ON ALL SCREENS ====== */
+/* 
+  Animates the entire hero section for all screen sizes
+  - The outer container with class p-5 (the hero section wrapper)
+  - The hero text (fade + slide up)
+  - The hero image (fade + slide from right)
+  Animations are staggered with delays for smooth entrance.
+*/
 
-  .hero-text .line1 {
-    opacity: 0;
-    transform: translateY(-30px);
-    animation: fadeInTop 1s ease-out forwards;
-    animation-delay: 0.2s;
-  }
-
-  .hero-text .ride-text {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: slideUp 1s ease-out forwards;
-    animation-delay: 0.5s;
-  }
-
-  .hero-image img {
-    opacity: 0;
-    transform: translateX(40px);
-    animation: fadeInRight 1.2s ease-out forwards;
-    animation-delay: 0.8s;
-  }
+/* Animate the whole hero container */
+.p-5 {
+  opacity: 0;                    /* Start hidden */
+  transform: translateY(40px);  /* Start slightly below */
+  animation: heroFadeIn 1s ease forwards;
+  animation-delay: 0.3s;        /* Delay before animation starts */
 }
 
-/* ====== KEYFRAMES ====== */
-@keyframes fadeInHero {
+/* Animate hero text */
+.hero-text {
+  opacity: 0;                   
+  transform: translateY(40px);  
+  animation: textSlideFade 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* Animate hero image */
+.hero-image {
+  opacity: 0;
+  transform: translateX(40px);  /* Start slightly right */
+  animation: imageSlideFade 1s ease forwards;
+  animation-delay: 0.7s;
+}
+
+/* Keyframe for hero container fade-in and slide-up */
+@keyframes heroFadeIn {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-@keyframes fadeInTop {
+
+/* Keyframe for hero text fade-in and slide-up */
+@keyframes textSlideFade {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fadeInRight {
+
+/* Keyframe for hero image fade-in and slide-left */
+@keyframes imageSlideFade {
   to {
     opacity: 1;
     transform: translateX(0);
@@ -187,6 +244,7 @@ img {
 }
 
 /* ====== BANNER SECTION ====== */
+/* Banner container width, margin, border radius and positioning */
 .banner-section {
   width: 90%; 
   max-width: 1200px; 
@@ -195,6 +253,8 @@ img {
   overflow: hidden;
   position: relative;
 }
+
+/* Banner slides are stacked absolute, hidden by default */
 .banner-slide {
   width: 100%;
   position: absolute;
@@ -203,54 +263,73 @@ img {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
+
+/* Banner slide images responsive */
 .banner-slide img {
   width: 100%;
   height: auto; 
   display: block;
 }
+
+/* Active banner slide is visible and positioned relative */
 .banner-slide.active {
   position: relative;
   opacity: 1;
 }
 
-/* ====== TRAVEL ====== */
+/* ====== TRAVEL SECTION ====== */
+/* Travel section text center and vertical padding */
 .travel {
   text-align: center;
   padding: 60px 0;
 }
+
+/* Travel section heading style */
 .travel h2 {
   font-size: 2rem;
   margin-bottom: 15px;
 }
+
+/* Travel paragraph style */
 .travel p {
   max-width: 700px;
   margin: 0 auto 30px;
   color: #555;
 }
+
+/* Travel images container flex and spacing */
 .travel-images {
   display: flex;
   justify-content: center;
   gap: 20px;
 }
+
+/* Travel images styling with border radius and hover scale */
 .travel-images img {
   width: 30%;
   border-radius: 10px;
   transition: transform 0.3s;
 }
+
 .travel-images img:hover {
   transform: scale(1.05);
 }
 
-/* ===== SCOOTERS ===== */
+/* ====== SCOOTERS SECTION ====== */
+/* Explore scooters section text center and padding */
 .explore-scooters { 
   text-align: center; 
   padding: 60px 0 40px; 
 }
+
+/* Scooters section heading */
 .explore-scooters h2 { 
   font-size: 2rem; 
   margin-bottom: 40px; 
   color: #1db954;
 }
+
+/* Grid for scooters cards */
 .scooter-grid { 
   display: flex; 
   gap: 2rem; 
@@ -258,28 +337,70 @@ img {
   flex-wrap: wrap; 
   align-items: stretch;
 }
-.scooter-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  width: 320px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+/* Badge styling for scooter features */
+.badge-custom {
+  display: inline-block;
+  background-color: #f7f7f7;
+  color: #333;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 20px;
+  margin-right: 6px;
 }
+
+/* Individual scooter card styles */
+.scooter-card {
+  background: #fff;
+  border-bottom: 4px solid #28a745; /* Green bottom border */
+  border-radius: 1rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Override green text to black for scooter card headings */
+.explore-scooters .scooter-card h5.green-text {
+  color: black !important;
+}
+
+/* Green text helper */
+.green-text {
+  color: #28a745;
+}
+
+/* Specs container and font size */
+.specs div {
+  font-size: 14px;
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Price table cells padding and font */
+.price-table td {
+  padding: 4px 12px;
+  font-size: 14px;
+}
+
+/* Scooter card table grows to fill space */
 .scooter-card table {
   flex-grow: 1;
 }
+
+/* Button at bottom of scooter card */
 .scooter-card .btn-book {
   margin-top: auto; 
 }
+
+/* Tags container */
 .tags {
   display: flex;
   justify-content: center;
   gap: 20px; 
   margin: 15px 0;
 }
+
+/* Individual tag styles */
 .tag {
   background:#E3E3E3;
   color: #535353;
@@ -288,6 +409,8 @@ img {
   border-radius: 25px;
   font-weight: 500;
 }
+
+/* Spec row container */
 .specs-row {
   display: flex;
   justify-content: space-between;
@@ -295,6 +418,8 @@ img {
   margin: 10px 0 15px;
   padding: 0 5px;
 }
+
+/* Individual spec item */
 .spec-item {
   display: flex;
   align-items: center;
@@ -303,32 +428,51 @@ img {
   color: #444;
   font-weight: bold;
 }
+
+/* Spec item icon styles */
 .spec-item i {
   color: #1db954;
   font-size: 1.2rem;
   flex-shrink: 0;  
 }
+
+/* Price table full width and no border collapse */
 .price-table { 
   width: 100%; 
   border-collapse: collapse; 
   margin-bottom: 15px; 
 }
+
+/* Price table cell borders */
 .price-table td { 
   padding: 6px 0; 
   border-bottom: 1px solid #eee; 
 }
 
-/* ====== HOW TO SKUT ====== */
+/* Center images inside cards */
+.card img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 180px;
+}
+
+/* ====== HOW TO SKUT SECTION ====== */
+/* Container padding and center text */
 .skut {
   padding: 60px 0;
   text-align: center;
 }
+
+/* Heading color and size */
 .skut h2 {
   color: #1db954; 
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 30px;
 }
+
+/* Steps container flex with gap */
 .steps-vertical {
   display: flex;
   justify-content: center;
@@ -337,6 +481,8 @@ img {
   margin-top: 30px;
   cursor: pointer;
 }
+
+/* Each step circle style */
 .step-circle {
   background: #1db954;
   color: #fff;
@@ -349,44 +495,62 @@ img {
   justify-content: center;
   text-align: center;
   padding: 10px;
+  margin: 1rem 2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* Step icon styles */
 .step-circle i {
   font-size: 2rem;
   margin-bottom: 8px;
 }
+
+/* Step text styles */
 .step-circle p {
   font-size: 0.85rem;
   line-height: 1.2;
   margin: 0;
 }
 
-/* ====== NEWSLETTER ====== */
+/* ====== NEWSLETTER SECTION ====== */
+/* Container and text alignment */
 .newsletter-section {
   text-align: center;
-  padding: 60px 0;
+  padding: 60px 0 0;
 }
+
+/* Heading styles */
 .newsletter-heading {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #111;
-}
-.newsletter {
-  background: #1db954;
-  padding: 25px;
-  border-radius: 8px;
   color: #fff;
+}
+
+/* Newsletter form container */
+.newsletter {
+  padding: 25px;
+  border-radius: 0;
   max-width: 600px;
   margin: 0 auto;
+  background: transparent;
 }
+
+/* Newsletter paragraph styling */
 .newsletter p {
   margin-bottom: 15px;
+  text-align: center;
+  color: #fff;
 }
+
+/* Newsletter form flexbox layout */
 .newsletter-form {
   display: flex;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
+
+/* Newsletter input styling */
 .newsletter-form input {
   padding: 10px;
   border: none;
@@ -394,6 +558,8 @@ img {
   width: 60%;
   max-width: 300px;
 }
+
+/* Newsletter submit button */
 .newsletter-form button {
   background: #1E1E1E;
   color: #FFFFFF;
@@ -404,23 +570,49 @@ img {
   cursor: pointer;
   transition: background 0.3s;
 }
+
+/* Newsletter title background */
+.newsletter-title {
+  background-color: white;
+  padding: 1rem 0;
+}
+
+/* Green banner background stretching full width */
+.newsletter-banner {
+  background-color: #1db954; /* Bootstrap's green */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 2rem 0;
+  color: white;
+}
+
+/* Newsletter button hover effect */
 .newsletter-form button:hover {
   background: #120101;
 }
 
-/* ====== FOOTER ====== */
+/* ====== FOOTER SECTION ====== */
+/* Footer background and text */
 .footer {
   background: #222;
   color: #ddd;
   padding: 40px 0;
   text-align: center;
 }
+
+/* Footer heading style */
 .footer h2 {
   color: #fff;
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 15px;
 }
+
+/* Footer content flex container */
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -428,25 +620,70 @@ img {
   gap: 20px;
   text-align: left;
 }
+
+/* Footer links styling */
 .footer-links a {
   display: block;
   margin-bottom: 5px;
   color: #fff;
   transition: color 0.3s;
 }
+
+/* Footer link hover */
 .footer-links a:hover {
   color: #4caf50;
 }
+
+/* Social icon links */
 .social-links a {
   margin: 0 8px;
   font-size: 1.2rem;
   color: #fff;
   transition: color 0.3s;
 }
+
+/* Social icon hover */
 .social-links a:hover {
   color: #4caf50;
 }
+
+/* Footer bottom text */
 .footer-bottom {
   margin-top: 20px;
   font-size: 0.9rem;
+}
+
+/* ====== RESPONSIVE STYLES ====== */
+/* Mobile and tablet responsiveness */
+/* Default desktop: steps horizontal (default) */
+/* Assuming your existing desktop styles handle multi-item layout */
+
+
+/* Tablet: iPads, medium screens */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .steps-vertical {
+    flex-direction: row;    /* horizontal layout on tablets */
+    flex-wrap: wrap;        /* allow wrapping */
+    justify-content: center;
+    gap: 30px;
+  }
+  .step-circle {
+    width: 140px;
+    height: 140px;
+    margin: 0;              /* no margin needed as gap is set */
+  }
+}
+
+/* Mobile phones: stack vertically */
+@media (max-width: 767px) {
+  .steps-vertical {
+    flex-direction: column; /* vertical stack */
+    align-items: center;    /* center horizontally */
+    gap: 30px;
+  }
+  .step-circle {
+    width: 140px;           /* fixed size circle */
+    height: 140px;
+    margin: 0 auto;         /* center horizontally */
+  }
 }
